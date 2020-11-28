@@ -1,0 +1,13 @@
+{
+  "id": "sbweb",
+  "app_id": "4",
+  "heartbeat_url": "/app/tenant1/auth/heartbeat",
+  "login_url": "/app/tenant1/auth/login?returnUrl=/app/tenant1/sb",
+  "logout_url": "/app/tenant1/auth/logout",
+  "promotion_effectiveness_url": "https://stg.periscope.mckinsey-solutions.com/app/tenant1/perf",
+  "promotion_planning_url": "",
+  "token_service_url": "http://ppv-stg-tenant1-svc.periscope-solutions.local:5003",
+  "use_auth0": "true",
+  "storyboard_service_url": "http://ppv-stg-tenant1-svc.periscope-solutions.local:5001",
+  "homepage_service_url": "https://stg.periscope.mckinsey-solutions.com/app/tenant1/homepage"
+}

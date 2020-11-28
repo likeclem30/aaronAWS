@@ -1,0 +1,81 @@
+{
+  "name": "qa",
+  "description": "",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {},
+  "override_attributes": {
+    "base_app_url": "/qaapp",
+    "infra": {
+      "databag_item": "env",
+      "databag_name": "qa"
+    },
+    "dns": {
+      "databag_item": "env",
+      "databag_name": "qa"
+    },
+    "nginx": {
+      "pv-web": {
+        "databag_name": "qa",
+        "databag_item": "pvweb"
+      },
+      "pv-seed-svc": {
+        "databag_name": "qa",
+        "databag_item": "pvseedsvc"
+      }
+    },
+    "db": {
+      "databag_name": "qa"
+    },
+    "pcas": {
+      "databag_name": "qa"
+    },
+    "pcas-admin": {
+      "databag_name": "qa"
+    },
+    "pv-seed-svc": {
+      "databag_name": "qa"
+    },
+    "pv-web": {
+      "databag_name": "qa"
+    },
+    "sb": {
+      "databag_name": "qa"
+    },
+    "token-svc": {
+      "databag_name": "qa"
+    },
+    "it": {
+      "databag_name": "qa"
+    },
+    "homepage-app": {
+      "databag_name": "qa"
+    },
+    "submarine": {
+      "databag_name": "qa"
+    },
+    "it_admin": {
+      "databag_name": "qa"
+    }
+  },
+  "cookbook_versions": {
+    "common": "1.3.0",
+    "db": "= 1.3.0",
+    "dns": "= 1.3.0",
+    "infra": "= 1.3.0",
+    "nginx": "= 1.3.1",
+    "pcas": "= 1.3.0",
+    "pv-seed-svc": "= 1.3.0",
+    "pv-web": "= 1.3.0",
+    "ppt": "= 1.1.0",
+    "sb": "= 1.3.0",
+    "it": "= 1.3.0",
+    "assets": "= 1.3.0",
+    "token-svc": "= 1.3.0",
+    "pcas-admin": "= 1.4.0",
+    "homepage-app": "= 1.3.0",
+    "submarine-home": "= 1.3.0",
+    "it-admin": "= 1.3.0",
+    "pv-monitoring": "= 1.3.0"
+  }
+}

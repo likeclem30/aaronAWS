@@ -1,0 +1,22 @@
+{
+  "id": "pcas",
+  "static_assets_root_dir": "public",
+  "auth0_domain": "ppv-con-tenant3.sso.periscope-solutions.com",
+  "cz": "ppv",
+  "auth0_logout_url": "https://%[1]s/v2/logout",
+  "token_service_base_url": "http://ppv-con-tenant3-svc.periscope-solutions.local:5003",
+  "default_redirection_route": "/",
+  "login_route": "/auth/login",
+  "login_redirection_timeout": 2000,
+  "app_domain": "app.periscope-solutions.com",
+   "app_config": {
+        "login_route":"/khl/auth/login",
+        "redirect_route": "/khl/auth/loginsuccess",
+        "default_login_redirection_url":"https://app.periscope-solutions.com/khl"
+    },
+    "admin_config": {
+        "login_route":"/khl/admin/auth/login",
+        "redirect_route": "/khl/admin/auth/loginsuccess",
+        "default_login_redirection_url":"https://app.periscope-solutions.com/khl/admin/users"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "id":"pvweb",
+    "app_id": "2",
+    "database_name":"performance_analytics",
+    "database_server":"ppv-con-tenant2-data01-srv.periscope-solutions.local",
+    "skip_ssl_verification":"true",
+    "ppt_service_url":"http://ppv-con-tenant2-svc.periscope-solutions.local:3000",
+    "ppt_template_file_path":"/opt/periscope/perf-web/resources/ExportTemplate.pptx",
+    "promotion_effectiveness_url":"https://app.periscope-solutions.com/coke/perf",
+    "promotion_planning_url":"",
+    "storyboard_service_url":"http://ppv-con-tenant2-svc.periscope-solutions.local:5001",
+    "storyboard_web_url":"https://app.periscope-solutions.com/coke/sb",
+    "tableau_internal_url": "https://tableau.periscope-solutions.com",
+    "tableau_public_url": "https://tableau.periscope-solutions.com",
+    "tableau_site_name":"ppv-con-tenant2-coke",
+    "use_auth0":"true",
+    "token_service_url":"http://ppv-con-tenant2-svc.periscope-solutions.local:5003",
+    "nginx_base_route": "http://localhost:5005/home.html",
+    "login_url": "/coke/auth/login?returnUrl=/coke/perf",
+    "logout_url": "/coke/auth/logout",
+    "heartbeat_url": "/coke/auth/heartbeat",
+    "homepage_service_url": "https://app.periscope-solutions.com/coke/homepage"
+}

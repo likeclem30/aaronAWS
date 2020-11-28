@@ -1,0 +1,6 @@
+{
+  "id": "sbsvc",
+  "database_name": "storyboard",
+  "database_server": "ppv-int-tenant1-data01-srv.periscope-solutions.local",
+  "database_schema": "sb"
+}

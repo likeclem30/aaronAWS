@@ -1,0 +1,28 @@
+{
+  "name": "pcas-for-admin",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "nginx": {
+      "url_context": "admin_context"
+    },
+    "monitoring": {
+      "url_context": "admin_context",
+      "source_file": "admin_monitoring_config.erb"
+    },
+    "pcas": {
+      "app_config": "admin_config"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+      "recipe[security::linux_hardening]",
+        "recipe[nginx::nginx_for_auth]",
+          "recipe[pcas::default]"
+  ],
+  "env_run_lists": {
+  }
+}

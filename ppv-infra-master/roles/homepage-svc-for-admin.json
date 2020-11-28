@@ -1,0 +1,16 @@
+{
+  "name": "homepage-svc-for-admin",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "homepage-app": {
+      "databag_item": "homepage-app-for-admin"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [ "role[homepage-svc]" ],
+  "env_run_lists": { 
+  }
+}

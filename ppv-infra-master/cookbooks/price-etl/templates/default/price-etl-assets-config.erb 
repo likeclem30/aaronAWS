@@ -1,0 +1,7 @@
+window.appConfig = {
+"serverPrefix":"<%=@server_prefix%>",
+"logoutPath": "<%=@logout_path%>",
+"configureUsersPath": "<%=@configureusers_path%>",
+"heartBeatPath": "<%=@heartbeat_path %>",
+"priceAdvisor": "<%=@price_path %>"
+};

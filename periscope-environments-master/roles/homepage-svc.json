@@ -1,0 +1,14 @@
+{
+  "name": "homepage-svc",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+    "homepage": {
+      "machine_type_filter": "linux_web"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[homepage-svc-role]"
+  ]
+}

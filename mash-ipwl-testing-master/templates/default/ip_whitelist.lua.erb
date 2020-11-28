@@ -1,0 +1,29 @@
+secrets = {}
+<% @secrets.each do |domain,locations| %>
+secrets<%= "['#{domain}']" %> = {}
+  <% locations.each do |location,secret| %>
+secrets<%= "['#{domain}']['#{location}']" %> = <%= "'#{secret}'" %>
+  <% end %>
+<% end %>
+
+customers_ips = {}
+<% @ip_whitelist.each do |domain,locations| %>
+customers_ips['<%= domain %>'] = {}
+  <% locations.each do |location,ips| %>
+customers_ips['<%= domain %>']['<%= location %>'] = {}
+    <% ips['ips'].each do |ip| %>
+customers_ips['<%= domain %>']['<%= location %>']['<%= ip %>'] = true
+    <% end %>
+  <% end %>
+<% end %>
+
+trusted_proxies = {}
+<% @trusted_proxies.each do |domain,locations| %>
+trusted_proxies['<%= domain %>'] = {}
+  <% locations.each do |location,ips| %>
+trusted_proxies['<%= domain %>']['<%= location %>'] = {}
+    <% ips['ips'].each do |ip| %>
+trusted_proxies['<%= domain %>']['<%= location %>']['<%= ip %>'] = true
+    <% end %>
+  <% end %>
+<% end %>

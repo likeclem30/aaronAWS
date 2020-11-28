@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+
+group :test, :development do
+  gem 'cookbook_utils', git: 'git@git.mckinsey-solutions.com:infra/cookbook_utils', tag: 'v0.3.1'
+end

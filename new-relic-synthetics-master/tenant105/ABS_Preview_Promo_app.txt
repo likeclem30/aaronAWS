@@ -1,0 +1,22 @@
+/**
+ *  Tenant105
+ *  ABS Preview - https://boi02.periscope-solutions.com/
+ * /html/body/div/div[1]/div/div[2]/div[2]/a/button
+ */
+
+var assert = require('assert');
+var defaultTimeout = 10000;
+var BASE_URL = 'https://boi02.periscope-solutions.com/';
+
+var xpathLogin = '/html/body/div/div[1]/div/div[2]/div[2]/a/button'
+
+// Login and check for scorecard load
+$browser.get(BASE_URL)
+    .then(() => $browser.waitForAndFindElement($driver.By.xpath(xpathLogin), defaultTimeout).then(e => e.click()))
+    .then(() => $browser.waitForAndFindElement($driver.By.name('login'), defaultTimeout).then(e => e.sendKeys($secure.ABS_PREVIEW_USERNAME)))
+    .then(() => $browser.waitForAndFindElement($driver.By.name('password'), defaultTimeout).then(e => e.sendKeys($secure.ABS_PREVIEW_PASSWORD)))
+    .then(() => $browser.waitForAndFindElement($driver.By.id('loginButton'), defaultTimeout).then(e => e.click()))
+    .then(() => $browser.waitForAndFindElement($driver.By.linkText('Promotion planning'), defaultTimeout)).then(e => e.click())
+    .then(() => $browser.waitForAndFindElement($driver.By.className('GridComponent'), defaultTimeout))
+    .then(() => $browser.takeScreenshot());
+

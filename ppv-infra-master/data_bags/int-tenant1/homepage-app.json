@@ -1,0 +1,30 @@
+{
+  "id": "homepage-app",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url": "http://int-sbsvc.periscope-solutions.local:5003",
+
+  "main_menu_items": [
+  {
+  	"id": "1",
+  	"url": "/intapp/perf/home.html",
+  	"title": "Home"
+  },{
+  	"id": "2",
+  	"url": "/intapp/perf",
+  	"title": "Analytics"
+  },{
+    "id": "3",
+    "url": "/intapp/action-workflow",
+    "title": "Action workflow"
+  },{
+	"id": "4",
+  	"url": "/intapp/sb",
+  	"title": "Storyboard"
+  }],
+  
+  "logout_item": {
+    "url": "/intapp/auth/logout",
+    "title": "Log out"
+  }
+}

@@ -1,0 +1,12 @@
+name             'ppt-svc'
+maintainer       'Periscope Solutions'
+maintainer_email 'dev@periscope-solutions.com'
+license          'All rights reserved'
+description      'Installs/Configures ppt'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+issues_url       'https://git.mckinsey-solutions.com/infra/chef-ppv/issues'
+source_url       'https://git.mckinsey-solutions.com/infra/chef-ppv'
+version          '1.1.0'
+depends          'nuget', '0.2.0'
+depends          'windows'
+depends          'iis'

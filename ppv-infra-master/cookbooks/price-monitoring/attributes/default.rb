@@ -1,0 +1,5 @@
+default['monitoring']['versions']['databag_item'] = 'appversions'
+default['monitoring']['component']['databag_item'] = 'monitoring'
+default['monitoring']['pcas']['databag_item'] = 'pcas'
+default['monitoring']['url_context'] = 'app_context'
+default['monitoring']['source_file'] = 'monitoring_config.erb'

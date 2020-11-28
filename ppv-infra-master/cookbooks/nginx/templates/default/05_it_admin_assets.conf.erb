@@ -1,0 +1,4 @@
+location ~ ^<%= @url_context %>/action-workflow/(.+)$ {
+  alias /opt/periscope/itracker-admin-assets/public/$1;
+  expires 0;
+}

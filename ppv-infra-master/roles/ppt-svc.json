@@ -1,0 +1,15 @@
+{
+  "name": "ppt-svc",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": ["recipe[dns::private_dns_entry]","recipe[ppt-svc::provision]","recipe[ppt-svc::service]"],
+  "env_run_lists": {
+  }
+}

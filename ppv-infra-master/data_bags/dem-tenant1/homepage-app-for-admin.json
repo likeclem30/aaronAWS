@@ -1,0 +1,28 @@
+{
+  "id": "homepage-app-for-admin",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url": "http://demo-sbsvc.periscope-solutions.local:5003",
+
+  "main_menu_items": [
+  {
+    "id": "perfadmin",
+    "url": "/demadmin/#/perf/home",
+    "title": "Data Visualisation",
+    "manifestUrl": "https://dev.periscope.mckinsey-solutions.com/demadmin/perf/rev-manifest.json"
+  },{
+    "id": "itrackeradmin",
+    "url": "/demadmin/#/action-workflow/home",
+    "title": "Action workflow",
+    "manifestUrl": "https://dev.periscope.mckinsey-solutions.com/demadmin/action-workflow/rev-manifest.json"
+  },{
+      "id": "pcasadmin",
+      "url": "/demadmin/users/#/admin",
+      "title": "User management"
+  }],
+  
+  "logout_item": {
+    "url": "/demadmin/auth/logout",
+    "title": "Log out"
+  }
+}

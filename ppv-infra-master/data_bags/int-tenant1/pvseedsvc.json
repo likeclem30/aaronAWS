@@ -1,0 +1,12 @@
+{
+  "database_server": "ppv-int-tenant1-data01-srv.periscope-solutions.local",
+  "database_name": "performance_analytics",
+  "database_schema": "pe",
+  "token_service_url": "http://int-sbsvc.periscope-solutions.local:5003",
+  "logout_path": "/intadmin/auth/logout",
+  "id": "pvseedsvc",
+  "heartbeat_path": "/intadmin/auth/heartbeat",
+  "nginx_base_route": "http://localhost:5004/",
+  "login_url": "/intadmin/auth/login?returnUrl=/intadmin/seed",
+  "configureusers_path": "/intadmin/users"
+}

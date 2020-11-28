@@ -1,0 +1,15 @@
+{
+    "id": "pcas-admin",
+    "performance_path": "/demadmin/#/perf/home",
+    "actionworkflow_path": "/demadmin/#/action-workflow/home",
+    "logout_path": "/demadmin/auth/logout",
+    "heartbeat_path": "/demadmin/auth/heartbeat",
+    "status_url": "https://ppv-dev-tenant1.sso-npn.periscope-solutions.com/api/v2/jobs",
+    "upload_url": "https://ppv-dev-tenant1.sso-npn.periscope-solutions.com/api/v2/jobs/users-imports",
+    "tokenservice_url": "http://demo-sbsvc.periscope-solutions.local:5003",
+    "login_url": "/demadmin/auth/login?returnUrl=/demadmin/users",
+    "aws_command": "/usr/local/bin/aws s3 cp %s s3://ppv-dev-usersync",
+    "create_user_endpoint": "https://ppv-dev-tenant1.sso-npn.periscope-solutions.com/api/v2/users",
+    "password_reset_endpoint": "https://ppv-dev-tenant1.sso-npn.periscope-solutions.com/dbconnections/change_password",
+    "connection_name": "ppv-dev-tenant1-database"
+}

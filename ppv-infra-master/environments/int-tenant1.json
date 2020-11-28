@@ -1,0 +1,103 @@
+{
+  "name": "int-tenant1",
+  "description": "",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {},
+  "override_attributes": {
+    "base_app_url": "/intapp",
+    "tenant_id": "tenant1",
+    "infra": {
+      "databag_item": "env",
+      "databag_name": "int-tenant1",
+      "chef_server_url": "https://dev-chefserver.periscope.mckinsey-solutions.com/organizations/ppv-tenant1/"
+    },
+    "dns": {
+      "databag_item": "env",
+      "databag_name": "int-tenant1"
+    },
+    "nginx": {
+      "pv-web": {
+        "databag_name": "int-tenant1",
+        "databag_item": "pvweb"
+      },
+      "pv-seed-svc": {
+        "databag_name": "int-tenant1",
+        "databag_item": "pvseedsvc"
+      }
+    },
+    "assets": {
+      "databag_name": "int-tenant1"
+    },
+    "db": {
+      "databag_name": "int-tenant1"
+    },
+    "ppt": {
+      "databag_name": "int-tenant1"
+    },
+    "pcas": {
+      "databag_name": "int-tenant1"
+    },
+    "pcas-admin": {
+      "databag_name": "int-tenant1"
+    },
+    "pv-seed-svc": {
+      "databag_name": "int-tenant1"
+    },
+    "pv-web": {
+      "databag_name": "int-tenant1"
+    },
+    "sb": {
+      "databag_name": "int-tenant1"
+    },
+    "token-svc": {
+      "databag_name": "int-tenant1"
+    },
+    "it": {
+      "databag_name": "int-tenant1"
+    },
+    "it_admin": {
+      "databag_name": "int-tenant1"
+    },
+    "homepage-app": {
+      "databag_name": "int-tenant1"
+    },
+    "submarine": {
+      "databag_name": "int-tenant1"
+    },
+    "splunk": {
+      "server_endpoint": "splunk-npn.mckinsey-solutions.com",
+      "windows_ta": {
+        "url": "https://s3.amazonaws.com/ndm-ppv-npn-common/splunk/windows/ta/splunk-add-on-for-microsoft-windows_483.zip",
+        "checksum": "84d8f6e95e7b42b284580e69d504429aaa62f2ec0a303226e579863458326c0a"
+      },
+      "windows_ta_mssql": {
+        "url": "https://s3.amazonaws.com/ndm-ppv-npn-common/splunk/windows/ta/splunk-add-on-for-microsoft-sql-server_120.zip",
+        "checksum": "bd02065606779cf7c373a46221b5bdd1e1197b66e0a0549890319e1032374220"
+      },
+      "forwarder": {
+        "windows_url": "https://s3.amazonaws.com/ndm-ppv-npn-common/splunk/windows/forwarder/64bit/splunkforwarder-6.3.3-f44afce176d0-x64-release.msi",
+        "url": "https://s3.amazonaws.com/ndm-ppv-npn-common/splunk/linux/forwarder/64bit/splunkforwarder-6.3.3-f44afce176d0-linux-2.6-x86_64.rpm"
+      }
+    }
+  },
+  "cookbook_versions": {
+    "db": "= 1.3.0",
+    "dns": "= 1.2.0",
+    "infra": "= 1.3.0",
+    "nginx": "= 1.3.1",
+    "pcas": "= 1.3.0",
+    "pv-seed-svc": "= 1.3.0",
+    "pv-web": "= 1.3.0",
+    "ppt": "= 1.1.0",
+    "sb": "= 1.3.0",
+    "it": "= 1.3.0",
+    "assets": "= 1.3.0",
+    "token-svc": "= 1.3.0",
+    "pcas-admin": "= 1.4.0",
+    "homepage-app": "= 1.3.0",
+    "submarine-home": "= 1.3.0",
+    "it-admin": "= 1.3.0",
+    "pv-monitoring": "= 1.3.0"
+  }
+}

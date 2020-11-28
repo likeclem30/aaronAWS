@@ -1,0 +1,12 @@
+{
+  "id": "it",
+  "app_id": "3",
+  "database_name": "itracker",
+  "database_server": "ppv-qa-tenant1-data01-srv.periscope-solutions.local",
+  "database_port": "5432",
+  "database_username": "itracker",
+  "database_schema": "itracker",
+  "token_service_url": "http://ppv-qa-tenant1-svc01-srv.periscope-solutions.local:5003/extend/action-workflow/",
+  "login_page_url": "/qaapp/auth/login?returnUrl=/qaapp/action-workflow/",
+  "homepage_service_url": "https://dev.periscope.mckinsey-solutions.com/qaapp/homepage"
+}

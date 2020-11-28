@@ -1,0 +1,519 @@
+server {
+  listen 80;
+  server_tokens off;
+
+  server_name <%= @site['domain'] %>;
+
+  <% if @site['set_client_max_body_size'] %>
+  client_max_body_size <%= @site['set_client_max_body_size'] %>;
+  <% end %>
+  
+  <% if @site["locations"].select {|l| l['protocol'] != 'https' and l['name'] == "/"}.empty? %>
+  location / {
+    error_page 302 301 /300.html;
+    return 302 "<%= @default_url %>";
+  }
+
+  location = /300.html {
+    root /usr/share/nginx/html;
+  }
+  <% end %>
+
+  # START LOOP - all site locations
+  <% @site["locations"].select {|l| l['protocol'] != 'https' }.each do |location| %>
+    
+  <% if location['tenant_id'] && location['502_custom_page'] %>
+  location = /502_<%= location['tenant_id'] %>_<%= location['name'].gsub('/','l_') %>.html {
+    root /usr/share/nginx/html;
+  }
+  <% end %>
+
+    <% if location['tenant_id'] && location['502_custom_page'] %>
+  location = /maintenance<%= location['name'] == "/" ? "" : location['name'].gsub('/','_') %>.html {
+    root /etc/nginx/maintenance/<%= location['tenant_id'] %>;
+  }
+  <% end %>
+
+  location <%= location["name"] %> {
+    <% if location['tenant_id'] && location['502_custom_page'] %>
+    recursive_error_pages on;
+    proxy_intercept_errors on;
+    error_page 502 503 /502_<%= location['tenant_id'] %>_<%= location['name'].gsub('/','l_') %>.html;
+    error_page 307 /maintenance<%= location['name'] == "/" ? "" : location['name'].gsub('/','_') %>.html;
+    <% end %>
+
+    # START IPWL_BYPASS = FALSE
+    <% unless (@ipwl_atts['mode_ipwl_bypass']) && (location.key?('ipwl_bypass') && location['ipwl_bypass']) %>
+    
+    access_by_lua '
+        function nginx_redirect_error(status_code, msg_error)
+          ngx.log(ngx.ERR, "error: ", msg_error)
+          ngx.status = status_code
+          ngx.header.Location = "<%= location['reject_url'] %>"
+          ngx.header.IPWL_error = msg_error
+          ngx.header.IPWL_rejected = "true"
+          ngx.print("302")
+          ngx.exit(302)
+        end
+
+        ngx.log(ngx.ERR,"Location matching:  <%= location["name"] %>")
+        
+        <% if (@ipwl_atts['mode_true_client_ip_header']) || (location.key?('use_true_client_ip_header') && location['use_true_client_ip_header']) %>
+        -- Using True-Client-IP header if enabled
+        
+        ngx.log(ngx.ERR,"True-Client-IP Header as I get it via HTTP ", ngx.var.http_true_client_ip)
+        
+        local true_client_ip = ngx.var.http_true_client_ip
+
+        -- Revert back to x-forwarded-for if true-client-ip not populated
+        if true_client_ip == nil then
+           
+          local iterator, err = ngx.re.gmatch(ngx.var.http_x_forwarded_for, "([0-9]{1,3}.){3}([0-9]{1,3})")
+          if not iterator then
+            nginx_redirect_error(302, "Error occured when http_x_forwarded_for has been parsed")
+            return      
+          end
+
+          local forwarded_ip = false
+          local indexed_ips = {}
+
+          for ip in iterator do
+            forwarded_ip = ip[0]
+            ngx.log(ngx.ERR,"Iterating: ", forwarded_ip)
+            table.insert(indexed_ips, forwarded_ip)
+          end
+                
+          local last_index = table.getn(indexed_ips)
+          true_client_ip = indexed_ips[last_index]
+        
+        end
+-- Maintenance Page
+function file_exists(name)
+local f,err =io.open(name,"r")
+ngx.log(ngx.ERR, "Enterd File check  ", err)
+if f~=nil then io.close(f)
+return true
+else
+return false
+end
+end
+local ip_arr = {}
+
+function line_parser(line)
+local index = string.find(line, ",")
+if index ~= nil then
+table.insert(ip_arr,string.sub(line, 0,index-1))
+else
+table.insert(ip_arr,line)
+end
+end
+
+if true == file_exists("/etc/nginx/maintenance/<%= location['tenant_id'] %>/maintenance<%= location['name'] == "/" ? "" : location['name'].gsub('/','_') %>.html") then
+local ipmaintenance = require("iputils")
+for line in io.lines("/usr/ip/<%= @site['domain'] %><%= location['name'] == "/" ? "" : location['name'].sub("/","__").gsub("/","--") %>.csv") do
+line_parser(line)
+end
+maintenanceip = ipmaintenance.parse_cidrs(ip_arr)
+if ipmaintenance.ip_in_cidrs(true_client_ip, maintenanceip) then
+ngx.log(ngx.ERR, "Client IP Blocked For Maintenance ", true_client_ip)
+return  ngx.exit(ngx.HTTP_TEMPORARY_REDIRECT)
+end
+end
+-- Maintenance off
+
+        
+        if customers_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[true_client_ip] then
+          ngx.log(ngx.ERR, "Access GRANTED to client ip ", true_client_ip)
+        else
+          -- Check the ip in range ips
+          local iputils = require("iputils")
+          whitelist = iputils.parse_cidrs(customers_range_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>)
+          if iputils.ip_in_cidrs(true_client_ip, whitelist) then
+            ngx.log(ngx.ERR, "Access GRANTED to client ip (by range checking) ", true_client_ip)
+          else
+            nginx_redirect_error(302, "Access DENIED for "..true_client_ip)
+            return
+          end
+        end
+        
+        <% else %>
+        -- Or using X-Forwarded-For header
+        
+        ngx.log(ngx.ERR,"X-Forwarded-For Header as I get it via HTTP ", ngx.var.http_x_forwarded_for)
+
+        -- Lets parse the forwarder_for header separateing by commas
+        local iterator, err = ngx.re.gmatch(ngx.var.http_x_forwarded_for, "([0-9]{1,3}.){3}([0-9]{1,3})")
+        
+        if not iterator then
+          nginx_redirect_error(302, "Error occured when http_x_forwarded_for has been parsed")
+          return      
+        end
+
+        local forwarded_ip = false
+        local indexed_ips = {}
+        -- Iterate to add the ip address in a new table named indexed_ips
+        for ip in iterator do
+          forwarded_ip = ip[0]
+          ngx.log(ngx.ERR,"Iterating: ", forwarded_ip)
+          table.insert(indexed_ips, forwarded_ip)
+        end
+                
+        -- Check the ips
+        local last_index = table.getn(indexed_ips)
+        local before_last_ip = indexed_ips[last_index - 1]
+        local last_ip = indexed_ips[last_index]
+
+        if customers_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[last_ip] then
+          ngx.log(ngx.ERR, "Access GRANTED to client ip ", last_ip)
+        elseif trusted_proxies<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[last_ip] and customers_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[before_last_ip] then
+          ngx.log(ngx.ERR, "Access GRANTED to proxy ip ", last_ip)
+          ngx.log(ngx.ERR, "Access GRANTED to client ip ", before_last_ip)
+        else
+          -- Check the ip in range ips
+          local iputils = require("iputils")
+          whitelist = iputils.parse_cidrs(customers_range_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>)
+          if iputils.ip_in_cidrs(last_ip, whitelist) then
+            ngx.log(ngx.ERR, "Access GRANTED to client ip (by range checking) ", last_ip)
+          else
+            nginx_redirect_error(302, "Access DENIED for "..ngx.var.http_x_forwarded_for)
+            return
+          end
+        end
+
+        <% end %>
+        
+        ngx.log(ngx.ERR, "HTTP Current Cookies: ", ngx.var.http_cookie)
+        -- Lets check the AuthCookie if exist
+        if (ngx.var.cookie_IPWL_CALLBACK) then
+          if not (ngx.var.cookie_IPWL_AUTH_<%= location["name"].tr("/|()-","_") %> == secrets<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>) then
+            ngx.header.Location = ngx.var.cookie_IPWL_CALLBACK
+            ngx.header["Set-Cookie"] = "IPWL_AUTH_<%= location["name"].tr("/|()-","_") %>=" .. secrets<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %> .. ";IPWL_CALLBACK=none"
+            ngx.status = 302
+            ngx.log(ngx.ERR, "Cookie Auth failed ! For ip: "..last_ip)
+            ngx.print(302)
+            ngx.exit(302)
+            return
+          end
+        end
+        
+        <% if location["redirection"] == "URL" %>
+        ngx.status = <%= location['redirection_code'] %>
+        ngx.header.Location = "<%= location['redirection_url'] %>"
+        ngx.print("<%= location['redirection_code'] %>")
+        ngx.exit(<%= location['redirection_code'] %>)
+        <% elsif location["redirection"] == "ProtocolChange" %>
+        ngx.status = <%= location['redirection_code'] %>
+        ngx.header.Location = "https://" .. ngx.var.host .. ngx.var.request_uri
+        ngx.print("<%= location['redirection_code'] %>")
+        ngx.exit(<%= location['redirection_code'] %>)
+        <% end %>
+
+    ';
+    <% end %>
+    # END IPWL_BYPASS = FALSE
+    
+    resolver <%= @default_nameserver %> valid=10s;
+    set $shttp<%= location["name"].tr("/|()-","_") %>_upstream "<%= location['remote_url'] %>";
+    <% if ((location['remote_protocol'] == "keep" or location['remote_protocol'] == "http") and location['remote_url'] != "None") %>
+
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection $http_connection;
+      
+      <% if location['pass_host'] %>
+      proxy_set_header Host $host;
+      <% end %>
+
+      <% if location['timeout'] %>
+      proxy_connect_timeout <%= location['timeout'] %>;
+      proxy_send_timeout <%= location['timeout'] %>;
+      proxy_read_timeout <%= location['timeout'] %>;
+      <% end %>
+
+      proxy_pass  http://$shttp<%= location["name"].tr("/|()-","_") %>_upstream;
+
+    <% elsif location['remote_url'] != "None" %>
+
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection $http_connection;
+      
+      <% if location['pass_host'] %>
+      proxy_set_header Host $host;
+      <% end %>
+
+      <% if location['timeout'] %>
+      proxy_connect_timeout <%= location['timeout'] %>;
+      proxy_send_timeout <%= location['timeout'] %>;
+      proxy_read_timeout <%= location['timeout'] %>;
+      <% end %>
+
+      proxy_pass  https://$shttp<%= location["name"].tr("/|()-","_") %>_upstream;
+
+    <% end %>
+
+  }        
+  <% end %>
+  # END LOOP - all site locations
+}
+
+server {
+  listen 443;
+
+  ssl on;
+  ssl_certificate /etc/nginx/ssl/nginx.crt;
+  ssl_certificate_key /etc/nginx/ssl/nginx.key;
+
+  ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+  ssl_prefer_server_ciphers on;
+
+  server_name <%= @site['domain'] %>;
+  server_tokens off;
+  
+  <% if @site['set_client_max_body_size'] %>
+  client_max_body_size <%= @site['set_client_max_body_size'] %>;
+  <% end %>
+
+  <% if @site["locations"].select {|l| l['protocol'] != 'http' and l['name'] == "/"}.empty? %>
+  location / {
+    error_page 302 301 /300.html;
+    return 302 "<%= @default_url %>";
+  }
+
+  location = /300.html {
+    root /usr/share/nginx/html;
+  }
+  <% end %>
+
+  # START LOOP - all site locations
+  <% @site["locations"].select {|l| l['protocol'] != 'http' }.each do |location| %>
+    
+  <% if location['tenant_id'] && location['502_custom_page'] %>
+  location = /502_<%= location['tenant_id'] %>_<%= location['name'].gsub('/','l_') %>.html {
+    root /usr/share/nginx/html;
+  }
+  <% end %>
+  <% if location['tenant_id'] && location['502_custom_page'] %>
+  location = /maintenance<%= location['name'] == "/" ? "" : location['name'].gsub('/','_') %>.html {
+    root /etc/nginx/maintenance/<%= location['tenant_id'] %>;
+  }
+  <% end %>
+
+  location <%= location['name'] %> {
+    <% if location['tenant_id'] && location['502_custom_page'] %>
+    recursive_error_pages on;
+    proxy_intercept_errors on;
+    error_page 502 503 /502_<%= location['tenant_id'] %>_<%= location['name'].gsub('/','l_') %>.html;
+    error_page 307 /maintenance<%= location['name'] == "/" ? "" : location['name'].gsub('/','_') %>.html;
+    <% end %>
+
+    # START IPWL_BYPASS = FALSE
+    <% unless (@ipwl_atts['mode_ipwl_bypass']) && (location.key?('ipwl_bypass') && location['ipwl_bypass']) %>
+
+    access_by_lua '
+        function nginx_redirect_error(status_code, msg_error)
+          ngx.log(ngx.ERR, "error: ", msg_error)
+          ngx.status = status_code
+          ngx.header.Location = "<%= location['reject_url'] %>"
+          ngx.header.IPWL_error = msg_error
+          ngx.header.IPWL_rejected = "true"
+          ngx.print("302")
+          ngx.exit(302)
+        end
+
+        ngx.log(ngx.ERR,"Location matching:  <%= location["name"] %>")
+        
+        <% if (@ipwl_atts['mode_true_client_ip_header']) || (location.key?('use_true_client_ip_header') && location['use_true_client_ip_header']) %>
+        -- Using True-Client-IP header if enabled
+        
+        ngx.log(ngx.ERR,"True-Client-IP Header as I get it via HTTP ", ngx.var.http_true_client_ip)
+        
+        local true_client_ip = ngx.var.http_true_client_ip
+
+        -- Revert back to x-forwarded-for if true-client-ip not populated
+        if true_client_ip == nil then
+           
+          local iterator, err = ngx.re.gmatch(ngx.var.http_x_forwarded_for, "([0-9]{1,3}.){3}([0-9]{1,3})")
+          if not iterator then
+            nginx_redirect_error(302, "Error occured when http_x_forwarded_for has been parsed")
+            return      
+          end
+
+          local forwarded_ip = false
+          local indexed_ips = {}
+
+          for ip in iterator do
+            forwarded_ip = ip[0]
+            ngx.log(ngx.ERR,"Iterating: ", forwarded_ip)
+            table.insert(indexed_ips, forwarded_ip)
+          end
+                
+          local last_index = table.getn(indexed_ips)
+          true_client_ip = indexed_ips[last_index]
+        
+        end
+-- Maintenance Page
+function file_exists(name)
+local f,err =io.open(name,"r")
+ngx.log(ngx.ERR, "Enterd File check  ", err)
+if f~=nil then io.close(f)
+return true
+else
+return false
+end
+end
+local ip_arr = {}
+
+function line_parser(line)
+local index = string.find(line, ",")
+if index ~= nil then
+table.insert(ip_arr,string.sub(line, 0,index-1))
+else
+table.insert(ip_arr,line)
+end
+end
+
+if true == file_exists("/etc/nginx/maintenance/<%= location['tenant_id'] %>/maintenance<%= location['name'] == "/" ? "" : location['name'].gsub('/','_') %>.html") then
+local ipmaintenance = require("iputils")
+for line in io.lines("/usr/ip/<%= @site['domain'] %><%= location['name'] == "/" ? "" : location['name'].sub("/","__").gsub("/","--") %>.csv") do
+line_parser(line)
+end
+maintenanceip = ipmaintenance.parse_cidrs(ip_arr)
+if ipmaintenance.ip_in_cidrs(true_client_ip, maintenanceip) then
+ngx.log(ngx.ERR, "Client IP Blocked For Maintenance ", true_client_ip)
+return  ngx.exit(ngx.HTTP_TEMPORARY_REDIRECT)
+end
+end
+-- Maintenance off     
+        if customers_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[true_client_ip] then
+          ngx.log(ngx.ERR, "Access GRANTED to client ip ", true_client_ip)
+        else
+          -- Check the ip in range ips
+          local iputils = require("iputils")
+          whitelist = iputils.parse_cidrs(customers_range_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>)
+          if iputils.ip_in_cidrs(true_client_ip, whitelist) then
+            ngx.log(ngx.ERR, "Access GRANTED to client ip (by range checking) ", true_client_ip)
+          else
+            nginx_redirect_error(302, "Access DENIED for "..true_client_ip)
+            return
+          end
+        end
+        
+        <% else %>
+        -- Or using X-Forwarded-For header
+        
+        ngx.log(ngx.ERR,"X-Forwarded-For Header as I get it via HTTP ", ngx.var.http_x_forwarded_for)
+
+        -- Lets parse the forwarder_for header separateing by commas
+        local iterator, err = ngx.re.gmatch(ngx.var.http_x_forwarded_for, "([0-9]{1,3}.){3}([0-9]{1,3})")
+        
+        if not iterator then
+          nginx_redirect_error(302, "Error occured when http_x_forwarded_for has been parsed")
+          return      
+        end
+
+        local forwarded_ip = false
+        local indexed_ips = {}
+        -- Iterate to add the ip address in a new table named indexed_ips
+        for ip in iterator do
+          forwarded_ip = ip[0]
+          ngx.log(ngx.ERR,"Iterating: ", forwarded_ip)
+          table.insert(indexed_ips, forwarded_ip)
+        end
+                
+        -- Check the ips
+        local last_index = table.getn(indexed_ips)
+        local before_last_ip = indexed_ips[last_index - 1]
+        local last_ip = indexed_ips[last_index]
+
+        if customers_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[last_ip] then
+          ngx.log(ngx.ERR, "Access GRANTED to client ip ", last_ip)
+        elseif trusted_proxies<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[last_ip] and customers_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[before_last_ip] then
+          ngx.log(ngx.ERR, "Access GRANTED to proxy ip ", last_ip)
+          ngx.log(ngx.ERR, "Access GRANTED to client ip ", before_last_ip)
+        elseif trusted_proxies<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[last_ip] and (ngx.var.cookie_IPWL_AUTH_<%= location["name"].tr("/|()-","_") %> == secrets<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>) then
+          ngx.log(ngx.ERR, "Access GRANTED to proxy ip ", last_ip)
+        elseif trusted_proxies<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>[last_ip] and not (ngx.var.cookie_IPWL_AUTH_<%= location["name"].tr("/|()-","_") %> == secrets<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>) then
+          ngx.header.Location = "http://" .. ngx.var.host .. ngx.var.request_uri
+          ngx.header["Set-Cookie"] = "IPWL_CALLBACK=https://" .. ngx.var.host .. ngx.var.request_uri
+          ngx.status = 302
+          ngx.log(ngx.ERR,  "Cookie is not present, requesting authentication ! For ip: "..last_ip)
+          ngx.print(302)
+          ngx.exit(302)
+          return
+        else
+          -- Check the ip in range ips
+          local iputils = require("iputils")
+          whitelist = iputils.parse_cidrs(customers_range_ips<%= "[\"#{@site["domain"]}\"][\"#{location["name"]}\"]" %>)
+          if iputils.ip_in_cidrs(last_ip, whitelist) then
+            ngx.log(ngx.ERR, "Access GRANTED to client ip (by range checking) ", last_ip)
+          else
+            nginx_redirect_error(302, "Access DENIED for "..ngx.var.http_x_forwarded_for)
+            return
+          end
+        end
+
+        <% end %>
+        
+        <% if location["redirection"] == "URL" %>
+        ngx.status = <%= location['redirection_code'] %>
+        ngx.header.Location = "<%= location['redirection_url'] %>"
+        ngx.print("<%= location['redirection_code'] %>")
+        ngx.exit(<%= location['redirection_code'] %>)
+        <% elsif location["redirection"] == "ProtocolChange" %>
+        ngx.status = <%= location['redirection_code'] %>
+        ngx.header.Location = "http://" .. ngx.var.host .. ngx.var.request_uri
+        ngx.print("<%= location['redirection_code'] %>")
+        ngx.exit(<%= location['redirection_code'] %>)
+        <% end %>
+       
+    ';
+    <% end %>
+    # END IPWL_BYPASS = FALSE
+
+    resolver <%= @default_nameserver %> valid=10s;
+    set $shttp<%= location["name"].tr("/|()-","_") %>_upstream "<%= location['remote_url'] %>";
+
+    <% if ((location['remote_protocol'] == "keep" or location['remote_protocol'] == "https") and location['remote_url'] != "None") %>
+
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection $http_connection;
+
+      <% if location['pass_host'] %>
+      proxy_set_header Host $host;
+      <% end %>
+
+      <% if location['timeout'] %>
+      proxy_connect_timeout <%= location['timeout'] %>;
+      proxy_send_timeout <%= location['timeout'] %>;
+      proxy_read_timeout <%= location['timeout'] %>;
+      <% end %>
+
+      proxy_pass  https://$shttp<%= location["name"].tr("/|()-","_") %>_upstream;
+
+    <% elsif location['remote_url'] != "None" %>
+
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection $http_connection;
+      
+      <% if location['pass_host'] %>
+      proxy_set_header Host $host;
+      <% end %>
+
+      <% if location['timeout'] %>
+      proxy_connect_timeout <%= location['timeout'] %>;
+      proxy_send_timeout <%= location['timeout'] %>;
+      proxy_read_timeout <%= location['timeout'] %>;
+      <% end %>
+
+      proxy_pass  http://$shttp<%= location["name"].tr("/|()-","_") %>_upstream;
+      
+    <% end %>
+  }
+  <% end %>
+  # END LOOP - all site locations
+  
+}

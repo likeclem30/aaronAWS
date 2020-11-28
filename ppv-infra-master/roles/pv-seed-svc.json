@@ -1,0 +1,39 @@
+{
+  "name": "pv-seed-svc",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {
+    "nginx": {
+      "base_route": "http://localhost:5004/"
+    },
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath": "/opt/periscope/landingpage-seed/logs",
+            "sourcetype": "landingpage-seed"
+          },
+          {
+            "filepath": "/var/log/audit/audit.log",
+            "sourcetype": "auditlog",
+            "index": "audit"
+          },
+          {
+            "filepath": "/var/log/messages",
+            "sourcetype": "syslogs"
+          }
+        ]
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[security::linux_hardening]",
+    "recipe[pv-seed-svc::default]",
+    "recipe[nginx::nginx_for_pvseed]",
+    "role[shared-assets-for-admin]"
+  ],
+  "env_run_lists": {}
+}

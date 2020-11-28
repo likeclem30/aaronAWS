@@ -1,0 +1,35 @@
+{
+  "id": "db",
+  "db_port": "1433",
+  "db_name": "FashionApp",
+  "db_instance": "FashionApp",
+  "db_server": "ppv-stg-tenant2-data01-srv.periscope-solutions.local",
+  "app_database": "FashionApp",
+  "database_path": "D:\\SQLData",
+  "database_log_path": "D:\\SQLLogs",
+  "database_backup_path": "E:\\SQLBackups",
+  "database_backup_scripts_dir": "E:\\SQLBackups\\scripts",
+  "s3_database_backup_path" : "s3://ndm-ppv-npn-backups/sql_server_backup/stg-tenant2/",
+  "schema_count": 3,
+  "schema_names": [
+    "Price_Current",
+    "Metadata",
+    "App_Config",
+    "Spark_Config",
+    "Ods"
+  ],
+  "spark_user_allowed_tables": [
+    "Price_Current.RecommendationJobs",
+    "Price_Current.RecommendationJobsAssociation",
+    "Price_Current.Roundingrules"
+  ],
+  "coefficientservice_migration_script": "rundbdeploy.sh",
+  "competitorservice_migration_script": "rundbdeploy.sh",
+  "planningservice_migration_script": "rundbdeploy.sh",
+  "queryservice_migration_script": "rundbdeploy.sh",
+  "workflowservice_migration_script": "rundbdeploy.sh",
+  "metadataservice_migration_script": "rundbdeploy.sh",
+  "calcenginedataservice_migration_script": "rundbdeploy.sh",
+  "configurationservice_migration_script": "rundbdeploy.sh",
+  "price_etl_migration_script": "rundbdeploy.sh"
+}

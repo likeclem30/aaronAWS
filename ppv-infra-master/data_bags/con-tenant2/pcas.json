@@ -1,0 +1,22 @@
+{
+    "id": "pcas",
+    "static_assets_root_dir":"public",
+    "auth0_domain":"ppv-con-tenant2.sso.periscope-solutions.com",
+    "cz": "ppv",
+    "auth0_logout_url":"https://%[1]s/v2/logout?federated",
+    "tableau_logout_url":" https://tableau.periscope-solutions.com/auth/logout",
+    "token_service_base_url":"http://ppv-con-tenant2-svc.periscope-solutions.local:5003",
+    "default_redirection_route":"/",
+    "login_redirection_timeout":2000,
+    "app_domain": "app.periscope-solutions.com",
+    "app_config": {
+        "login_route":"/coke/auth/login",
+        "redirect_route": "/coke/auth/loginsuccess",
+        "default_login_redirection_url":"https://app.periscope-solutions.com/coke/perf/home.html"
+    },
+    "admin_config": {
+        "login_route":"/coke/admin/auth/login",
+        "redirect_route": "/coke/admin/auth/loginsuccess",
+        "default_login_redirection_url":"https://app.periscope-solutions.com/coke/admin/users"
+    }
+}

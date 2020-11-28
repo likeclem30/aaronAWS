@@ -1,0 +1,6 @@
+{
+	"id": "priceweb",
+	"login_route": "/app/tenant2/auth/login",
+	"logout_route": "/app/tenant2/auth/logout",
+	"base_route": "/app/tenant2"
+}

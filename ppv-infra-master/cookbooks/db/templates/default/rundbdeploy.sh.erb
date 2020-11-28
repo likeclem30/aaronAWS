@@ -1,0 +1,13 @@
+runDbDeploy() {
+         goose -env $DBDEPLOY_ENV -path "" -pgschema "Spark_Config" up
+                 failOnError
+         echo "Done"
+}
+
+failOnError(){
+        if [ $? -ne 0 ]; then
+                exit 1
+        fi
+}
+
+runDbDeploy

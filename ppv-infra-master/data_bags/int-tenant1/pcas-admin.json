@@ -1,0 +1,13 @@
+{
+  "id": "pcas-admin",
+  "performance_path": "/intadmin/#/perf/home",
+  "actionworkflow_path": "/intadmin/#/action-workflow/home",
+  "logout_path": "/intadmin/auth/logout",
+  "login_url": "/intadmin/auth/login?returnUrl=/intadmin/users",
+  "heartbeat_path": "/intadmin/auth/heartbeat",
+  "tokenservice_url": "http://int-sbsvc.periscope-solutions.local:5003",
+  "create_user_endpoint": "https://ppv-dev-tenant1.sso-npn.periscope-solutions.com/api/v2/users",
+  "password_reset_endpoint": "https://ppv-dev-tenant1.sso-npn.periscope-solutions.com/dbconnections/change_password",
+  "s3_usersync_bucket": "ppv-dev-usersync",
+  "connection_name": "ppv-dev-tenant1-database"
+}

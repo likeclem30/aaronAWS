@@ -1,0 +1,54 @@
+#!/bin/bash
+#chkconfig: 2345 90 60
+# Disable systemd integration
+SYSTEMCTL_SKIP_REDIRECT=1
+
+# Source functions library
+# Functions used: daemon, killproc, status
+. /etc/rc.d/init.d/functions
+
+# Don't fail due to third-party functions
+# Other strict checks break inside functions library
+set -o pipefail
+
+# Component configurations
+COMP_NAME="jobserver"
+COMP_EXECUTABLE_NAME="jobserver_setup.sh"
+
+# Common configurations
+COMP_PATH="/opt/periscope/spark-job-server"
+COMP_EXECUTABLE="${COMP_PATH}/${COMP_EXECUTABLE_NAME}"
+INIT_SCRIPT_PATH="/etc/init.d/${COMP_NAME}"
+SERVICE_LOG_FILE="${COMP_PATH}/logs/${COMP_NAME}.service.log"
+
+RETVAL=0
+
+start() {
+  echo -n $"Starting ${COMP_NAME}"
+  cd "${COMP_PATH}"
+  daemon "${COMP_PATH}/${COMP_EXECUTABLE_NAME} >>${SERVICE_LOG_FILE} 2>&1 &"
+  echo
+  sleep 1
+}
+
+enable() {
+  chkconfig --add "${COMP_NAME}"
+  chkconfig --level 2345 "${COMP_NAME}" on 
+}
+
+case "$1" in
+  start|'')
+    start
+    ;;
+
+  enable|'')
+    enable
+    ;;
+
+  *)
+    echo "Usage: ${INIT_SCRIPT_PATH} start|enable" >&2
+    exit 1
+    ;;
+esac
+
+exit ${RETVAL}

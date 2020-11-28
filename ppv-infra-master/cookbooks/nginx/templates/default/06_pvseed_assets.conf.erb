@@ -1,0 +1,4 @@
+location ~ ^<%= @url_context %>/perf/(.+)$ {
+    alias /opt/periscope/landingpage-seed-assets/public/$1;
+    expires 0;
+}

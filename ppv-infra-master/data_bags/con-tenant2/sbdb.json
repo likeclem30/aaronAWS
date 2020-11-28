@@ -1,0 +1,6 @@
+{
+    "id":"sbdb",
+    "app_database":"storyboard",
+    "login_user":"postgres",
+    "schema_name":"sb"
+}

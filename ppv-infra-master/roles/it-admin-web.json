@@ -1,0 +1,21 @@
+{
+  "name": "it-admin-web",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[it-admin::web]",
+    "recipe[nginx::nginx_for_it_admin_assets]",
+    "role[shared-assets-for-admin]"
+  ],
+
+  "env_run_lists": {
+  }
+}

@@ -1,0 +1,15 @@
+location ~ ^<%= @url_context %>/(.+)$ {
+  alias /opt/periscope/submarine-home-assets/public/$1;
+  expires 0;
+}
+
+location = <%= @url_context %>/ {
+  default_type "text/html";
+  alias /opt/periscope/submarine-home-assets/public/;
+  index index.html;
+  expires 0;
+}
+
+location = <%= @url_context %> {
+  rewrite ^ <%= @url_context %>/ redirect;
+}

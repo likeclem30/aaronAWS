@@ -1,0 +1,13 @@
+{
+  "id": "it",
+  "app_id": "3",
+  "database_name": "itracker",
+  "database_server":"ppv-con-tenant5-data01-srv.periscope-solutions.local",
+  "database_port": "5432",
+  "database_username": "itracker",
+  "database_schema": "itracker",
+  "token_service_url":"http://ppv-con-tenant5-svc.periscope-solutions.local:5003/extend/action-workflow/",
+  "login_page_url": "/solvay/auth/login?returnUrl=/solvay/action-workflow/",
+  "homepage_service_url": "https://app.periscope-solutions.com/solvay/homepage",
+  "impact_tracker_server_url": "http://ppv-con-tenant5-svc.periscope-solutions.local:5007"
+}

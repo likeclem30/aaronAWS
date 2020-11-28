@@ -1,0 +1,73 @@
+{
+    "variables": {
+      "kms_key_id": "{{env `KMS_KEY_ID`}}",
+      "subnet_id": "{{env `SUBNET_ID`}}",
+      "ssh_keypair_name": "{{env `SSH_KEYPAIR_NAME`}}",
+      "ssh_private_key": "{{env `SSH_PRIVATE_KEY_FILE`}}",
+      "environment_code": "{{env `ENVIRONMENT_CODE`}}",
+      "os_name": "AmazonLinux2",
+      "buildtime": "{{ isotime \"2006-01-02-1504\" }}",
+      "home":"/home/ec2-user"
+    },
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "region": "us-east-1",
+        "source_ami_filter": {
+            "filters": {
+              "virtualization-type": "hvm",
+              "name": "amzn2-ami-hvm-2.0.20*gp2",
+              "root-device-type": "ebs",
+              "architecture": "x86_64"
+            },
+            "owners": ["137112412989"],
+            "most_recent": true
+        },
+        "encrypt_boot": true,
+        "kms_key_id": "{{user `kms_key_id`}}",
+        "subnet_id": "{{user `subnet_id`}}",
+        "instance_type": "t3.medium",
+        "ssh_keypair_name": "{{user `ssh_keypair_name`}}",
+        "ssh_private_key_file": "{{user `ssh_private_key`}}",
+        "run_tags": {
+          "Environment": "stg"
+        },
+        "communicator": "ssh",
+        "ssh_username": "ec2-user",
+        "ssh_timeout": "4m",
+        "ssh_pty": true,
+        "ami_name": "ppv-{{user `environment_code`}}-promo-{{user `os_name`}}-{{user `buildtime`}}",
+        "ami_description": "Based on {{.SourceAMIName}} with SSM and Inspector with python3",
+        "tags": {
+          "Name": "ppv-{{user `environment_code`}}-{{user `os_name`}}-{{user `buildtime`}}",
+          "deprecated": "false",
+          "OS": "{{user `os_name`}}"
+        },
+        "launch_block_device_mappings": [
+          {
+            "device_name": "/dev/xvda",
+            "volume_size": 10,
+            "volume_type": "gp2",
+            "delete_on_termination": true
+          }
+        ],
+        "run_volume_tags": {
+            "Name": "Packer build - {{user `os_name`}} base AMI us-east-1"
+        }
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "shell",
+        "script": "provisioners/install_amzonlunux2_UTC.sh"
+      },
+      {
+        "type": "shell",
+        "inline": [
+          "echo \">>> Remove ssh client directories\"",
+          "rm -f \"{{ user `home` }}/.ssh/authorized_keys\"",
+          "sudo rm -f \"/root/.ssh/authorized_keys\""
+        ]
+      }
+    ]
+  }

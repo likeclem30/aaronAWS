@@ -1,0 +1,68 @@
+{
+    "schemaVersion": "2.0",
+    "version": "v762",
+    "packages": {
+        "amazon": {
+            "_any": {
+                "_any": {
+                    "file": "NessusAgent-7.6.2-amzn.x86_64.rpm.zip"
+                }
+            }
+        },
+        "centos": {
+            "_any": {
+                "_any": {
+                    "file": "NessusAgent-7.6.2-es7.x86_64.rpm.zip"
+                }
+            }
+        },
+        "redhat": {
+            "_any": {
+                "_any": {
+                    "file": "NessusAgent-7.6.2-rh7.x86_64.rpm.zip"
+                }
+            }
+        },
+        "ubuntu": {
+            "_any": {
+                "_any": {
+                    "file": "NessusAgent-7.6.2-ubuntu1110_amd64.deb.zip"
+                }
+            }
+        },
+        "windows": {
+            "_any": {
+                "_any": {
+                    "file": "NessusAgent-7.6.2-x64.msi.zip"
+                }
+            }
+        }
+    },
+    "files": {
+        "NessusAgent-7.6.2-amzn.x86_64.rpm.zip": {
+            "checksums": {
+                "sha256": "<sha-value>"
+            }
+        },
+        "NessusAgent-7.6.2-es7.x86_64.rpm.zip": {
+            "checksums": {
+                "sha256": "<sha-value>"
+            }
+        },
+        "NessusAgent-7.6.2-rh7.x86_64.rpm.zip": {
+            "checksums": {
+                "sha256": "<sha-value>"
+            }
+        },
+        "NessusAgent-7.6.2-ubuntu1110_amd64.deb.zip": {
+            "checksums": {
+                "sha256": "<sha-value>"
+            }
+        },
+        "NessusAgent-7.6.2-x64.msi.zip": {
+            "checksums": {
+                "sha256": "<sha-value>"
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>502</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha256-rr9hHBQ43H7HSOmmNkxzQGazS/Khx+L8ZRHteEY1tQ4=" crossorigin="anonymous" />
+  <style type="text/css">
+    body {
+      padding-top: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <div id="root">
+    <div class="container">
+
+      <div id="api-response-success" class="alert alert-success hidden" role="alert">
+        <strong>We are waking up your tenant, please bear with us for a couple of minutes, the login page will show up once your tenant is ready.</strong>
+      </div>
+
+      <div id="api-response-failed" class="alert alert-danger hidden" role="alert">
+        <strong>An error has occurred.</strong>
+      </div>
+
+      <div class="mt-1">
+        <h1>Your Periscope tenant is asleep</h1>
+      </div>
+      <p class="lead">To wake up your tenant, simply click on the button below and wait for 3 minutes to see the login page. If something goes wrong please contact support@mckinsey.com.</p>
+      <button id="btn-tenant-start" type="button" class="btn btn-primary">Wake up my tenant</button>
+    </div>
+  </div><!-- /root -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script>
+
+  var requestTenantStart = function(tenantId) {
+    $.ajax({
+       url: '<%= @site['api_endpoint'] %>'+tenantId,
+       data: {
+          format: 'json'
+       },
+       beforeSend: function() {
+          $('#btn-tenant-start').attr('disabled', 'disabled');
+          console.log('Request sent, please wait ...');
+       },
+       error: function() {
+          $('#api-response-failed').removeClass("hidden");
+          $('#api-response-success').addClass("hidden");
+       },
+       success: function(data) {
+          $('#api-response-success').removeClass("hidden");
+          $('#api-response-failed').addClass("hidden");
+          console.log('Response from apigateway: ');
+          console.log(data);
+       },
+       type: 'GET'
+    });
+  }
+
+  $(document).ready(function() {
+    $('#btn-tenant-start').click(function(e) {
+      e.preventDefault();
+      var tenantId = "<%= @location['tenant_id'] %>";
+      requestTenantStart(tenantId);
+    });
+
+    setInterval(function() {
+      window.location.reload();
+    }, 180000);
+  });
+  </script>
+</body>
+</html>

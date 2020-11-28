@@ -1,0 +1,27 @@
+{
+  "id": "homepage-app",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url":"http://ppv-con-tenant2-svc.periscope-solutions.local:5003",
+  "main_menu_items": [
+    {
+      "id": "1",
+      "url": "/coke/perf/home.html",
+      "title": "Home"
+    },
+    {
+      "id": "2",
+      "url": "/coke/perf",
+      "title": "Analytics"
+    },
+    {
+      "id": "3",
+      "url": "/coke/sb",
+      "title": "Storyboard"
+    }
+  ],
+  "logout_item": {
+    "url": "/coke/auth/logout",
+    "title": "Log out"
+  }
+}

@@ -1,0 +1,6 @@
+#!/usr/bin/env rake
+
+require 'bundler/setup'
+
+Bundler.require(:development)
+CookbookUtils::Tasks.new(__dir__)

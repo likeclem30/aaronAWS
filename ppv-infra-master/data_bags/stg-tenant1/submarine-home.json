@@ -1,0 +1,7 @@
+{
+  "id": "submarine-home",
+  "homepage_service_url": "https://stg.periscope.mckinsey-solutions.com/admin/tenant1/homepage",
+  "heartbeat_path": "/admin/tenant1/auth/heartbeat",
+  "login_path": "/admin/tenant1/auth/login",
+  "logout_path": "/admin/tenant1/auth/logout"
+}

@@ -1,0 +1,82 @@
+{
+  "name": "smoke",
+  "description": "",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {},
+  "override_attributes": {
+    "infra": {
+      "databag_item": "env",
+      "databag_name": "smoke"
+    },
+    "dns": {
+      "databag_item": "env",
+      "databag_name": "smoke"
+    },
+    "nginx": {
+      "pv-web": {
+        "databag_name": "smoke",
+        "databag_item": "pvweb"
+      },
+      "pv-seed-svc": {
+        "databag_name": "smoke",
+        "databag_item": "pvseedsvc"
+      }
+    },
+    "db": {
+      "databag_name": "smoke"
+    },
+    "pcas": {
+      "databag_name": "smoke"
+    },
+    "pcas-admin": {
+      "databag_name": "smoke"
+    },
+    "pv-seed-svc": {
+      "databag_name": "smoke"
+    },
+    "pv-web": {
+      "databag_name": "smoke"
+    },
+    "sb": {
+      "databag_name": "smoke"
+    },
+    "it": {
+      "databag_name": "smoke"
+    },
+    "token-svc": {
+      "databag_name": "smoke"
+    },
+    "homepage-app": {
+      "databag_name": "smoke"
+    },
+    "submarine": {
+      "databag_name": "smoke"
+    },
+    "it_admin": {
+      "databag_name": "smoke"
+    },
+    "infra": {
+      "databag_name": "smoke"
+    }
+  },
+  "cookbook_versions": {
+    "db": "= 1.2.0",
+    "dns": "= 1.2.0",
+    "infra": "= 1.2.0",
+    "nginx": "= 1.2.0",
+    "pcas": "= 1.2.0",
+    "pv-seed-svc": "= 1.2.0",
+    "pv-web": "= 1.2.0",
+    "ppt": "= 1.0.0",
+    "sb": "= 1.2.0",
+    "it": "= 1.2.0",
+    "assets": "= 1.2.0",
+    "token-svc": "= 1.2.0",
+    "pcas-admin": "= 1.3.0",
+    "homepage-app": "= 1.2.0",
+    "submarine-home": "= 1.2.0",
+    "it-admin": "= 1.2.0",
+    "pv-monitoring": "= 1.2.1"
+  }
+}

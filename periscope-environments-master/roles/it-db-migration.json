@@ -1,0 +1,9 @@
+{
+  "name": "it-db-migration",
+  "description": "",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "run_list": [
+  	"recipe[it-db-migration-role::default]"
+  ]
+}

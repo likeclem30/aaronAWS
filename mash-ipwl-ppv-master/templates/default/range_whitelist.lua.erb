@@ -1,0 +1,10 @@
+customers_range_ips = {}
+<% @range_whitelist.each do |domain,locations| %>
+customers_range_ips['<%= domain %>'] = {}
+  <% locations.each do |location,ips| %>
+customers_range_ips['<%= domain %>']['<%= location %>'] = {}
+    <% ips['ips'].each do |ip| %>
+table.insert(customers_range_ips['<%= domain %>']['<%= location %>'], '<%= ip %>')
+    <% end %>
+  <% end %>
+<% end %>

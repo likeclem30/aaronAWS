@@ -1,0 +1,43 @@
+{
+  "name": "dem-tenant3",
+  "description": "",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {},
+  "override_attributes": {
+    "ssh_user_name": "centos",
+    "key_name": "PPVNATDefault",
+    "ssl_verify_mode": "verify_none",
+    "client_name": "ppv-deploy",
+    "signing_key_filename": "/opt/chef-repo/.chef/ppv-deploy.pem",
+    "periscope": {
+      "tenant_id": "tenant3",
+      "environment_code": "dem",
+      "databag_name": "dem-tenant3",
+      "application_context": "/demapp3",
+      "admin_context": "/demadmin3",
+      "authorized_email_domains": "thoughtworks.com,mckinsey.com,external.mckinsey.com",
+      "tenant_modules": ["pv", "sb", "itracker"],
+      "env": {
+        "chef_server_url": "https://dev-chefserver.periscope.mckinsey-solutions.com/organizations/ppv-dem-tenant3/"
+      },
+      "machine": {
+        "groups": {
+          "data": {
+            "number_of_machines": 1
+          }
+        }
+      },
+      "modules": {
+        "default":  { "db": { "machine_type": "linux_data" } },
+        "pv":       { "db": { "machine_type": "linux_data" } },
+        "sb":       { "db": { "machine_type": "linux_data" } },
+        "itracker": { "db": { "machine_type": "linux_data" } }
+      },
+      "auth0_domain": "ppv-dev-tenant3.sso-npn.periscope-solutions.com"
+    },
+    "pcas-admin": {
+      "connection_name": "ppv-dem-tenant3-database"
+    }
+  }
+}

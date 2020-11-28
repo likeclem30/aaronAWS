@@ -1,0 +1,6 @@
+{
+	"id": "priceweb",
+	"login_route": "/qaapp2/auth/login",
+	"logout_route": "/qaapp2/auth/logout",
+	"base_route": "/qaapp2"
+}

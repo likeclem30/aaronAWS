@@ -1,0 +1,4 @@
+location ~ ^<%= @url_context %>/common/(.+)$ {
+  alias /opt/periscope/shared-assets/public/$1;
+  expires 0;
+}

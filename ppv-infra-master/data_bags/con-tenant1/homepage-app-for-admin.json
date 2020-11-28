@@ -1,0 +1,29 @@
+{
+  "id": "homepage-app-for-admin",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url": "http://ppv-con-tenant1-svc.periscope-solutions.local:5003",
+  "main_menu_items": [
+    {
+      "id": "perfadmin",
+      "url": "/tenant1/admin/#/perf/home",
+      "title": "Data Visualization",
+      "manifestUrl": "https://app.periscope-solutions.com/tenant1/admin/perf/rev-manifest.json"
+    },
+    {
+      "id": "itrackeradmin",
+      "url": "/tenant1/admin/#/action-workflow/home",
+      "title": "Action workflow",
+      "manifestUrl": "https://app.periscope-solutions.com/tenant1/admin/action-workflow/rev-manifest.json"
+    },
+    {
+      "id": "pcasadmin",
+      "url": "/tenant1/admin/users/#/admin",
+      "title": "User management"
+    }
+  ],
+  "logout_item": {
+    "url": "/tenant1/admin/auth/logout",
+    "title": "Log out"
+  }
+}

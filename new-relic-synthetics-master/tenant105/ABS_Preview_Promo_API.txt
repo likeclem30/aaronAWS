@@ -1,0 +1,20 @@
+/**
+ * Feel free to explore, or check out the full documentation
+ * https://docs.newrelic.com/docs/synthetics/new-relic-synthetics/scripting-monitors/writing-api-tests
+ * for details.
+ * https://boi02-api.periscope-solutions.com/promoAPI/v1/LIVE/promotions
+ */
+
+var assert = require('assert');
+var BASE_URL = 'https://boi02-api.periscope-solutions.com'
+var PROMOAPI_URI = '/promoAPI/v1/LIVE/promotions'
+var options = {
+  uri: BASE_URL + PROMOAPI_URI
+}
+
+function callback(err, response, body){
+  console.log('Status Code: ' + response.statusCode);
+  assert.ok(response.statusCode == 401, 'Expected a 401 Unauthorized response');
+}
+
+$http.get(options, callback);

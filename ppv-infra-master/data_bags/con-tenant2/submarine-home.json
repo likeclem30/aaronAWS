@@ -1,0 +1,7 @@
+{
+  "id": "submarine-home",
+  "homepage_service_url": "https://app.periscope-solutions.com/coke/admin/homepage",
+  "heartbeat_path": "/coke/admin/auth/heartbeat",
+  "login_path": "/coke/admin/auth/login",
+  "logout_path": "/coke/admin/auth/logout"
+}

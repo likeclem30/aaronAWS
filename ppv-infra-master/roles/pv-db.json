@@ -1,0 +1,38 @@
+{
+  "name": "pv-db",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath": "/var/lib/pgsql/9.4/data/pg_log/",
+            "sourcetype": "postgresql"
+          },
+          {
+            "filepath": "/var/log/audit/audit.log",
+            "sourcetype": "auditlog",
+            "index": "audit"
+          },
+          {
+            "filepath": "/var/log/messages",
+            "sourcetype": "syslogs"
+          }
+        ]
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[mash-splunk]",
+    "recipe[security::linux_hardening]",
+    "recipe[db::pvhba]",
+    "recipe[postgresql::server]",
+    "recipe[db::pvdb]",
+    "recipe[dns::private_dns_entry]"
+  ],
+  "env_run_lists": {}
+}

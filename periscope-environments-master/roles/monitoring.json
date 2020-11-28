@@ -1,0 +1,14 @@
+{
+  "name": "monitoring",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+  "nginx" : {
+    "base_route": "http://localhost:6001/index.html"
+   }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[monitoring-role]"
+  ]
+}

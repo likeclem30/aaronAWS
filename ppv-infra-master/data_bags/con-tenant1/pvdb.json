@@ -1,0 +1,6 @@
+{
+    "id": "pvdb",
+    "app_database": "performance_analytics",
+    "login_user": "postgres",
+    "schema_name": "pe"
+}

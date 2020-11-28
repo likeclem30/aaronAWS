@@ -1,0 +1,28 @@
+{
+  "id": "homepage-app-for-admin",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url": "http://ppv-qa-tenant1-svc01-srv.periscope-solutions.local:5003",
+
+  "main_menu_items": [
+  {
+  	"id": "perfadmin",
+  	"url": "/qaadmin/#/perf/home",
+  	"title": "Data Visualization",
+    "manifestUrl": "https://dev.periscope.mckinsey-solutions.com/qaadmin/perf/rev-manifest.json"
+  },{
+  	"id": "itrackeradmin",
+  	"url": "/qaadmin/#/action-workflow/home",
+  	"title": "Action workflow",
+    "manifestUrl": "https://dev.periscope.mckinsey-solutions.com/qaadmin/action-workflow/rev-manifest.json"
+  },{
+  	"id": "pcasadmin",
+  	"url": "/qaadmin/users/#/admin",
+  	"title": "User management"
+  }],
+  
+  "logout_item": {
+    "url": "/qaadmin/auth/logout",
+    "title": "Log out"
+  }
+}

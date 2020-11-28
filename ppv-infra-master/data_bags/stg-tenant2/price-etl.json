@@ -1,0 +1,10 @@
+{
+	"id": "price-etl",
+	"login_url": "/admin/tenant2/auth/login?returnUrl=/admin/tenant2/priceetl/",
+	"fact_job_batch_size": "300",
+	"logout_path":"/admin/tenant2/auth/logout",
+    "heartbeat_path":"/admin/tenant2/auth/heartbeat",
+    "configureusers_path": "/admin/tenant2/users",
+    "price_path" : "/admin/tenant2/priceetl",
+    "server_prefix": "/admin/tenant2/priceetl/api"
+}

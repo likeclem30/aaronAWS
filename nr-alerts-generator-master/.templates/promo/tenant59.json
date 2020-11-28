@@ -1,0 +1,246 @@
+{
+    "policy_name": "ppv_con_tenant59_infra",
+    "notification_channel_ids": "1363266,1363273,1941926,2143355",
+    "conditions": [
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_con_tenant59_generic_cpu_used",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Name": [
+                                    "ppv-con-tenant59-jenkins01-srv",
+                                    "ppv-con-tenant59-mgmt01-srv",
+                                    "ppv-con-tenant59-promo-fsvc01-srv",
+                                    "ppv-con-tenant59-promo-mgmt01-srv",
+                                    "ppv-con-tenant59-promo-svc01-srv",
+                                    "ppv-con-tenant59-promo-svc02-srv",
+                                    "ppv-con-tenant59-promo-web01-srv",
+                                    "ppv-con-tenant59-promo-web02-srv",
+                                    "ppv-con-tenant59-svc01-srv",
+                                    "ppv-con-tenant59-svc02-srv",
+                                    "ppv-con-tenant59-web01-srv",
+                                    "ppv-con-tenant59-web02-srv",
+                                    "ppv-con-tenant59-cluster1-master-srv",
+                                    "ppv-con-tenant59-cluster1-slave0-srv",
+                                    "ppv-con-tenant59-cluster1-slave1-srv"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "SystemSample",
+                "select_value": "cpuPercent",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_con_tenant59_generic_cpu_load_five_minutes",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Name": [
+                                    "ppv-con-tenant59-jenkins01-srv",
+                                    "ppv-con-tenant59-mgmt01-srv",
+                                    "ppv-con-tenant59-promo-fsvc01-srv",
+                                    "ppv-con-tenant59-promo-mgmt01-srv",
+                                    "ppv-con-tenant59-promo-svc01-srv",
+                                    "ppv-con-tenant59-promo-svc02-srv",
+                                    "ppv-con-tenant59-promo-web01-srv",
+                                    "ppv-con-tenant59-promo-web02-srv",
+                                    "ppv-con-tenant59-svc01-srv",
+                                    "ppv-con-tenant59-svc02-srv",
+                                    "ppv-con-tenant59-web01-srv",
+                                    "ppv-con-tenant59-web02-srv",
+                                    "ppv-con-tenant59-cluster1-master-srv",
+                                    "ppv-con-tenant59-cluster1-slave0-srv",
+                                    "ppv-con-tenant59-cluster1-slave1-srv"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "SystemSample",
+                "select_value": "loadAverageFiveMinute",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 2,
+                    "duration_minutes": 10,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 2,
+                    "duration_minutes": 5,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant59_generic_memory",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Name": [
+                                    "ppv-con-tenant59-jenkins01-srv",
+                                    "ppv-con-tenant59-mgmt01-srv",
+                                    "ppv-con-tenant59-promo-fsvc01-srv",
+                                    "ppv-con-tenant59-promo-mgmt01-srv",
+                                    "ppv-con-tenant59-promo-svc01-srv",
+                                    "ppv-con-tenant59-promo-svc02-srv",
+                                    "ppv-con-tenant59-promo-web01-srv",
+                                    "ppv-con-tenant59-promo-web02-srv",
+                                    "ppv-con-tenant59-svc01-srv",
+                                    "ppv-con-tenant59-svc02-srv",
+                                    "ppv-con-tenant59-web01-srv",
+                                    "ppv-con-tenant59-web02-srv",
+                                    "ppv-con-tenant59-cluster1-master-srv",
+                                    "ppv-con-tenant59-cluster1-slave0-srv",
+                                    "ppv-con-tenant59-cluster1-slave1-srv"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "SystemSample",
+                "select_value": "memoryUsedBytes/memoryTotalBytes*100",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant59_generic_disk_used",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Environment": [
+                                    "con-tenant59"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "StorageSample",
+                "select_value": "diskUsedPercent",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_host_not_reporting",
+                "name": "ppv_tenant59_generic_server_status",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Environment": [
+                                    "con-tenant59"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "critical_threshold": {
+                    "duration_minutes": 10
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant59_ETL_DB_cpu",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "is": {
+                                "ec2Tag_Name": "ppv-con-tenant59-sqlserver_etl01-srv"
+                            }
+                        }
+                    ]
+                },
+                "event_type": "SystemSample",
+                "select_value": "cpuPercent",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 10,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant59_DB_cpu ",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "is": {
+                                "ec2Tag_Name": "ppv-con-tenant59-data01-srv"
+                            }
+                        }
+                    ]
+                },
+                "event_type": "SystemSample",
+                "select_value": "cpuPercent",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 80,
+                    "duration_minutes": 10,
+                    "time_function": "all"
+                }
+            }
+        }
+    ]
+}

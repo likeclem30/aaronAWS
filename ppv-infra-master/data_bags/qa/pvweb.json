@@ -1,0 +1,22 @@
+{
+  "id": "pvweb",
+  "app_id": "2",
+  "use_auth0": "true",
+  "database_name": "performance_analytics",
+  "database_password": "password",
+  "database_server": "ppv-qa-tenant1-data01-srv.periscope-solutions.local",
+  "database_username": "pa_user",
+  "nginx_base_route": "http://localhost:5005/home.html",
+  "ppt_service_url": "http://ppv-qa-tenant1-svc01-srv.periscope-solutions.local:3000",
+  "ppt_template_file_path": "/opt/periscope/perf-web/resources/ExportTemplate.pptx",
+  "skip_ssl_verification": "true",
+  "homepage_service_url": "https://dev.periscope.mckinsey-solutions.com/qaapp/homepage",
+  "promotion_effectiveness_url": "https://dev.periscope.mckinsey-solutions.com/qaapp/perf",
+  "action_workflow_url": "https://dev.periscope.mckinsey-solutions.com/qaapp/action-workflow",
+  "storyboard_web_url": "https://dev.periscope.mckinsey-solutions.com/qaapp/sb",
+  "storyboard_service_url": "http://ppv-qa-tenant1-svc01-srv.periscope-solutions.local:5001",
+  "tableau_internal_url": "http://dev-tableau.periscope.mckinsey-solutions.com",
+  "tableau_public_url": "https://dev-tableau.periscope.mckinsey-solutions.com",
+  "tableau_site_name": "ppv_site1",
+  "token_service_url": "http://ppv-qa-tenant1-svc01-srv.periscope-solutions.local:5003"
+}

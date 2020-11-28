@@ -1,0 +1,11 @@
+"use strict";
+
+window.appConfig = {
+services: [
+<% @services.each do |service| %>
+    {
+    "name": "<%= service["name"] %>",
+    "url": "<%= service["url"] %>"
+    },
+<% end %>]
+};

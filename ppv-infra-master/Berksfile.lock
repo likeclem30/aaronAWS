@@ -1,0 +1,131 @@
+DEPENDENCIES
+  build-essential
+    git: git@git.mckinsey-solutions.com:infra/cookbook-build-essential.git
+    revision: c6b0f201f056658becaefa143a26cb84d7f45094
+  chef-handler
+    git: git@git.mckinsey-solutions.com:infra/cookbook-chef-handler.git
+    revision: 5264e347898717fdd9034ffdbdb05645f18f0156
+  chef-splunk
+    git: git@git.mckinsey-solutions.com:infra/cookbook-chef-splunk.git
+    revision: 17f97abf9ab823762fd08edcd8e1cc1f62904225
+  chef-sugar
+    git: git@git.mckinsey-solutions.com:infra/cookbook-chef-sugar.git
+    revision: e8cfaac98ceb0221cbf2186a781d4a1c1a859768
+  common
+    path: cookbooks/common
+  database
+    git: git@git.mckinsey-solutions.com:infra/cookbook-database.git
+    revision: 22e11ddef7fee9b2fbd0f7f3c4f22e10d0443f99
+  db
+    path: cookbooks/db
+  dns
+    path: cookbooks/dns
+  emr_cluster
+    path: cookbooks/emr_cluster
+  infra
+    path: cookbooks/infra
+  mash-bitdefender
+    git: git@git.mckinsey-solutions.com:mash-shared/cookbook-mash-bitdefender.git
+    revision: bca9edb09779ad1b23f3ea450182d95a8525a9ea
+  mash-splunk
+    git: git@git.mckinsey-solutions.com:mash-shared/cookbook-mash-splunk.git
+    revision: 5477adfa49866d75db0855c93f733312634a9a2e
+  nginx
+    path: cookbooks/nginx
+  openssl
+    git: git@git.mckinsey-solutions.com:infra/cookbook-openssl.git
+    revision: 1d10bbaff5498b875f1c1907bd9d043da5e3b9ef
+  pcas
+    path: cookbooks/pcas
+  pcas-admin
+    path: cookbooks/pcas-admin
+  postgresql
+    git: git@git.mckinsey-solutions.com:infra/cookbook-postgresql.git
+    revision: 2811643811414e84ef24d0b2d095d1dd84a7c62e
+  price
+    path: cookbooks/price
+  price-etl
+    path: cookbooks/price-etl
+  price-monitoring
+    path: cookbooks/price-monitoring
+  pv-monitoring
+    path: cookbooks/pv-monitoring
+  pv-seed-svc
+    path: cookbooks/pv-seed-svc
+  pv-web
+    path: cookbooks/pv-web
+  route53
+    git: git@git.mckinsey-solutions.com:infra/cookbook-route53.git
+    revision: 67ad878deb9911b6f8393bea278c5e10298ba1a3
+  sb
+    path: cookbooks/sb
+  security
+    path: cookbooks/security
+  token-svc
+    path: cookbooks/token-svc
+  windows
+    git: git@git.mckinsey-solutions.com:infra/cookbook-windows.git
+    revision: d169ef3e5c98ef1c8c46bbecdfa7b06218d2ce81
+  windows-setup
+    path: cookbooks/windows-setup
+  xml
+    git: git@git.mckinsey-solutions.com:infra/cookbook-xml.git
+    revision: 23a61d78f3416fa68432ae8da70da836440a25cc
+
+GRAPH
+  build-essential (2.2.3)
+  chef-handler (1.3.0)
+  chef-splunk (1.5.0)
+    chef-vault (>= 1.0.4)
+  chef-sugar (3.3.1)
+  chef-vault (1.3.3)
+  chef_handler (1.4.0)
+  common (1.3.0)
+  database (4.0.12)
+    postgresql (= 4.0.5)
+  db (1.3.0)
+    common (= 1.3.0)
+    database (= 4.0.12)
+  dns (1.2.0)
+    route53 (>= 0.0.0)
+  emr_cluster (1.1.1)
+  infra (1.3.0)
+    common (= 1.3.0)
+    dns (>= 0.0.0)
+    emr_cluster (>= 0.0.0)
+  mash-bitdefender (1.0.0)
+    windows (>= 0.0.0)
+  mash-splunk (1.1.0)
+    chef-splunk (>= 0.0.0)
+    windows (>= 0.0.0)
+  nginx (1.3.1)
+  openssl (4.4.0)
+    chef-sugar (>= 3.1.1)
+  pcas (1.3.0)
+    common (= 1.3.0)
+  pcas-admin (1.4.0)
+    common (= 1.3.0)
+  postgresql (4.0.5)
+    build-essential (>= 0.0.0)
+    openssl (~> 4.0)
+  price (1.1.0)
+  price-etl (1.1.0)
+  price-monitoring (1.2.0)
+  pv-monitoring (1.3.0)
+  pv-seed-svc (1.3.0)
+    common (= 1.3.0)
+  pv-web (1.3.0)
+    common (= 1.3.0)
+  route53 (0.4.0)
+    xml (>= 0.0.0)
+  sb (1.3.0)
+    common (= 1.3.0)
+  security (1.3.0)
+  token-svc (1.3.0)
+    common (= 1.3.0)
+  windows (1.39.2)
+    chef-handler (>= 0.0.0)
+  windows-setup (1.3.0)
+  xml (2.0.0)
+    build-essential (>= 0.0.0)
+    chef-sugar (>= 0.0.0)

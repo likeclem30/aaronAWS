@@ -1,0 +1,8 @@
+{
+  "host": "localhost",
+  "db_name": "performance_analytics",
+  "id": "pvdbmigration",
+  "schema_name": "pe",
+  "sslmode": "disable",
+  "script_path": "/opt/periscope/perf-web/public"
+}

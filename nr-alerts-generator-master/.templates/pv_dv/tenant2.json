@@ -1,0 +1,156 @@
+{
+    "policy_name": "ppv_con_tenant2_infra",
+    "notification_channel_ids": "1941926,1941926,1363266",
+    "conditions": [
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_con_tenant2_generic_cpu_used",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Environment": [
+                                    "con-tenant2"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "SystemSample",
+                "select_value": "cpuPercent",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_con_tenant2_generic_cpu_load_five_minutes",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Environment": [
+                                    "con-tenant2"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "SystemSample",
+                "select_value": "loadAverageFiveMinute",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 2,
+                    "duration_minutes": 10,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 2,
+                    "duration_minutes": 5,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant2_generic_memory",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Environment": [
+                                    "con-tenant2"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "SystemSample",
+                "select_value": "memoryUsedBytes/memoryTotalBytes*100",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant2_generic_disk_used",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Environment": [
+                                    "con-tenant2"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "StorageSample",
+                "select_value": "diskUsedPercent",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_host_not_reporting",
+                "name": "ppv_tenant2_generic_server_status",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Environment": [
+                                    "con-tenant2"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "critical_threshold": {
+                    "duration_minutes": 10
+                }
+            }
+        }
+    ]
+}

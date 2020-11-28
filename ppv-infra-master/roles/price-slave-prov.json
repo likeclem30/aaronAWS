@@ -1,0 +1,36 @@
+{
+  "name": "price-slave-prov",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath" : "/var/log/messages",
+            "sourcetype" : "syslogs"
+          },
+          {
+            "filepath" : "/var/log/hadoop-yarn/containers/.../stderr",
+            "sourcetype" : "price-slave-prov"
+          },
+          {
+            "filepath" : "/var/log/audit/audit.log",
+            "sourcetype" : "auditlog"
+          }
+        ]
+      }
+    },
+    "security": {
+      "iptables_ports": ["80", "22", "8090"]
+  }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[mash-splunk]",
+      "recipe[security::linux_hardening]"
+  ]
+}

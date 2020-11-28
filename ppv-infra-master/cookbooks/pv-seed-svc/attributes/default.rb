@@ -1,0 +1,9 @@
+default['pv-seed-svc']['databag_item'] = 'pvseedsvc'
+default['pv-seed-svc']['component_name'] = 'landingpage-seed'
+default['pv-seed-svc']['log_level'] = 'error'
+default['pv-seed-svc']['app_port'] = 5004
+default['pv-seed-svc']['assets_package_name'] = 'landingpage-seed-assets'
+default['pv-seed-svc']['appversions_databag_name'] = 'appversions'
+default['pv-seed-svc']['db_secrets'] = 'db-secrets'
+default['pv-seed-svc']['app_secrets'] = 'app-secrets'
+default['pv-seed-svc']['databag_name'] = 'smoke'

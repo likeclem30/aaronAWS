@@ -1,0 +1,19 @@
+/**
+ * Feel free to explore, or check out the full documentation
+ * https://docs.newrelic.com/docs/synthetics/new-relic-synthetics/scripting-monitors/writing-api-tests
+ * for details.
+ */
+
+var assert = require('assert');
+var BASE_URL = 'https://boi02-api.periscope-solutions.com'
+var IDP_URI = '/idp/token'
+var options = {
+  uri: BASE_URL + IDP_URI
+}
+
+function callback(err, response, body){
+  console.log('Status Code: ' + response.statusCode);
+  assert.ok(response.statusCode == 400, 'Expected a 400 Bad request');
+}
+
+$http.get(options, callback);

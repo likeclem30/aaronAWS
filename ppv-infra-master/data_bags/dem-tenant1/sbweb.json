@@ -1,0 +1,13 @@
+{
+    "storyboard_service_url":"http://demo-sbsvc.periscope-solutions.local:5001",
+    "promotion_effectiveness_url": "https://dev.periscope.mckinsey-solutions.com/demapp/perf",
+    "promotion_planning_url":"",
+    "id":"sbweb",
+    "app_id": "4",
+    "use_auth0":"true",
+    "token_service_url":"http://demo-sbsvc.periscope-solutions.local:5003",
+    "login_url": "/demapp/auth/login?returnUrl=/demapp/sb",
+    "logout_url": "/demapp/auth/logout",
+    "heartbeat_url": "/demapp/auth/heartbeat",
+    "homepage_service_url": "https://dev.periscope.mckinsey-solutions.com/demapp/homepage"
+}

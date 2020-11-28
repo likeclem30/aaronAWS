@@ -1,0 +1,8 @@
+{
+	"id": "queryservice",
+	"app_port": "6002",
+	"log_format": "text",
+	"metadata_endpoint": "localhost:6005",
+	"job_server_endpoint": "ppv-dev-tenant2-jobserver.periscope-solutions.local:8090",
+	"log_level" : "info"
+}

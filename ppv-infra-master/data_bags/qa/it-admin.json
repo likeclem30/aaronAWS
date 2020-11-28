@@ -1,0 +1,7 @@
+{
+  "id": "it-admin",
+  "app_id": "itracker",
+  "database_server": "ppv-qa-tenant1-data01-srv.periscope-solutions.local",
+  "token_service_url": "http://ppv-qa-tenant1-svc01-srv.periscope-solutions.local:5003",
+  "login_url": "/qaadmin/auth/login?returnUrl=/qaadmin/#/action-workflow"
+}

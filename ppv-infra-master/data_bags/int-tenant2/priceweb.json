@@ -1,0 +1,6 @@
+{
+	"id": "priceweb",
+	"login_route": "/intapp2/auth/login",
+	"logout_route": "/intapp2/auth/logout",
+	"base_route": "/intapp2"
+}

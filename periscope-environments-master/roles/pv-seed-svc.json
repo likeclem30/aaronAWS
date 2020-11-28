@@ -1,0 +1,14 @@
+{
+  "name": "pv-seed-svc",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+    "nginx": {
+      "base_route": "http://localhost:5004/"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[pv-seed-svc-role]"
+  ]
+}

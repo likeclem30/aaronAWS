@@ -1,0 +1,15 @@
+{
+	"id": "priceservice",
+	"app_port": "6001",
+	"log_format": "text",
+	"query_endpoint": "ppv-con-tenant4-svc.periscope-solutions.local:6002",
+	"configuration_endpoint": "ppv-con-tenant4-svc.periscope-solutions.local:6007",
+	"planning_endpoint": "ppv-con-tenant4-svc.periscope-solutions.local:6006",
+	"workflow_endpoint": "ppv-con-tenant4-svc.periscope-solutions.local:6010",
+	"dimensiondata_endpoint": "ppv-con-tenant4-svc.periscope-solutions.local:6008",
+	"tokenservice_endpoint": "ppv-con-tenant4-svc.periscope-solutions.local:5003",
+	"metadata_endpoint": "ppv-con-tenant4-svc.periscope-solutions.local:6005",
+	"calcenginedata_endpoint": "ppv-con-tenant4-svc.periscope-solutions.local:6011",
+	"competitor_endpoint": "ppv-con-tenant4-svc.periscope-solutions.local:6009",
+	"log_level" : "error"
+}

@@ -1,0 +1,28 @@
+DEPENDENCIES
+  chef-handler
+    git: git@git.mckinsey-solutions.com:infra/cookbook-chef-handler.git
+    revision: 5264e347898717fdd9034ffdbdb05645f18f0156
+  iis
+    git: git@git.mckinsey-solutions.com:infra/cookbook-iis.git
+    revision: f1771ffa605bced0b03f5f39a6a3af70aae3327e
+  nuget
+    git: git@git.mckinsey-solutions.com:infra/cookbook-nuget.git
+    revision: ebce281e740019270bd7a24d627dddf3cb3ada95
+  ppt-svc
+    path: .
+    metadata: true
+  windows
+    git: git@git.mckinsey-solutions.com:infra/cookbook-windows.git
+    revision: d169ef3e5c98ef1c8c46bbecdfa7b06218d2ce81
+
+GRAPH
+  chef-handler (1.3.0)
+  iis (4.1.8)
+    windows (>= 1.34.6)
+  nuget (0.2.0)
+  ppt-svc (1.1.0)
+    iis (>= 0.0.0)
+    nuget (= 0.2.0)
+    windows (>= 0.0.0)
+  windows (1.39.2)
+    chef-handler (>= 0.0.0)

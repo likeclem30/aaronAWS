@@ -1,0 +1,7 @@
+{
+  "id": "it-admin",
+  "app_id": "itracker",
+  "database_server": "ppv-stg-tenant1-data01-srv.periscope-solutions.local",
+  "token_service_url": "http://ppv-stg-tenant1-svc.periscope-solutions.local:5003",
+  "login_url": "/admin/tenant1/auth/login?returnUrl=/admin/tenant1/#/action-workflow"
+}

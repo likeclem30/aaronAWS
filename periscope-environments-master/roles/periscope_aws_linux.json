@@ -1,0 +1,15 @@
+{
+  "name": "periscope_aws_linux",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[periscope-aws-linux-role]"
+  ],
+  "env_run_lists": { 
+  }
+}

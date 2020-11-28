@@ -1,0 +1,4 @@
+-- +goose Up
+<% @db_tables.each do |table| %>
+  USE [<%= @db_name %>]; GRANT <%= @db_permissions.join(', ') %> ON <%= table %> TO [<%= @db_username %>];
+<% end %>

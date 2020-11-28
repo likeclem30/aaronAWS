@@ -1,0 +1,14 @@
+{
+  "name": "it-web",
+  "description": "",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "run_list": [
+    "recipe[it-web-role]"
+  ],
+  "override_attributes": {
+    "nginx": {
+      "url_context": "application_context"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "homepage-app",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url": "http://ppv-qa-tenant1-svc01-srv.periscope-solutions.local:5003",
+
+  "main_menu_items": [
+  {
+  	"id": "1",
+  	"url": "/qaapp/perf/home.html",
+  	"title": "Home"
+  },{
+  	"id": "2",
+  	"url": "/qaapp/perf",
+  	"title": "Analytics"
+  },{
+	"id": "4",
+  	"url": "/qaapp/sb",
+  	"title": "Storyboard"
+  }],
+  
+  "logout_item": {
+    "url": "/qaapp/auth/logout",
+    "title": "Log out"
+  }
+}

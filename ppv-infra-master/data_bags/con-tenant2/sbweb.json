@@ -1,0 +1,13 @@
+{
+  "id": "sbweb",
+  "app_id": "3",
+  "storyboard_service_url": "http://ppv-con-tenant2-svc.periscope-solutions.local:5001",
+  "promotion_effectiveness_url": "https://app.periscope-solutions.com/coke/perf",
+  "promotion_planning_url": "",
+  "use_auth0": "true",
+  "token_service_url": "http://ppv-con-tenant2-svc.periscope-solutions.local:5003",
+  "login_url": "/coke/auth/login?returnUrl=/coke/sb",
+  "logout_url": "/coke/auth/logout",
+  "heartbeat_url": "/coke/auth/heartbeat",
+  "homepage_service_url": "https://app.periscope-solutions.com/coke/homepage"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "pcas-admin",
+  "performance_path": "/tenant1/admin/seed",
+  "actionworkflow_path": "/tenant1/admin/#/action-workflow/home",
+  "logout_path": "/tenant1/admin/auth/logout",
+  "heartbeat_path": "/tenant1/admin/auth/heartbeat",
+  "tokenservice_url": "http://ppv-con-tenant1-svc.periscope-solutions.local:5003",
+  "login_url": "/tenant1/admin/auth/login?returnUrl=/tenant1/admin/users",
+  "create_user_endpoint": "https://ppv-con-tenant1.sso.periscope-solutions.com/api/v2/users",
+  "password_reset_endpoint": "https://ppv-con-tenant1.sso.periscope-solutions.com/dbconnections/change_password",
+  "s3_usersync_bucket": "ndm-psh-tableau-usersync",
+  "connection_name": "ppv-con-tenant1-database"
+}

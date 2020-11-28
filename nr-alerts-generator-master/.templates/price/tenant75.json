@@ -1,0 +1,266 @@
+{
+    "policy_name": "ppv_con_tenant75_infra",
+    "notification_channel_ids": "1363266,1363273,1941926,1938793",
+    "conditions": [
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_con_tenant75_generic_cpu_used",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Name": [
+                                    "ppv-con-tenant75-jenkins01-srv",
+                                    "ppv-con-tenant75-mgmt01-srv",
+                                    "ppv-con-tenant75-spark-master",
+                                    "ppv-con-tenant75-svc01-srv",
+                                    "ppv-con-tenant75-svc02-srv",
+                                    "ppv-con-tenant75-web01-srv",
+                                    "ppv-con-tenant75-web02-srv"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "SystemSample",
+                "select_value": "cpuPercent",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_con_tenant75_generic_cpu_load_five_minutes",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Name": [
+                                    "ppv-con-tenant75-jenkins01-srv",
+                                    "ppv-con-tenant75-mgmt01-srv",
+                                    "ppv-con-tenant75-spark-master",
+                                    "ppv-con-tenant75-svc01-srv",
+                                    "ppv-con-tenant75-svc02-srv",
+                                    "ppv-con-tenant75-web01-srv",
+                                    "ppv-con-tenant75-web02-srv"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "SystemSample",
+                "select_value": "loadAverageFiveMinute",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 2,
+                    "duration_minutes": 10,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 2,
+                    "duration_minutes": 5,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant75_generic_memory",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Name": [
+                                    "ppv-con-tenant75-spark-master",
+                                    "ppv-con-tenant75-svc01-srv",
+                                    "ppv-con-tenant75-svc02-srv",
+                                    "ppv-con-tenant75-web01-srv",
+                                    "ppv-con-tenant75-web02-srv",
+                                    "ppv-con-tenant75-mgmt01-srv",
+                                    "ppv-con-tenant75-jenkins01-srv"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "SystemSample",
+                "select_value": "memoryUsedBytes/memoryTotalBytes*100",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant75_generic_disk_used",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Environment": [
+                                    "con-tenant75",
+                                    "ppv-con-tenant75"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "event_type": "StorageSample",
+                "select_value": "diskUsedPercent",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_host_not_reporting",
+                "name": "ppv_tenant75_generic_server_status",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "in": {
+                                "ec2Tag_Name": [
+                                    "ppv-con-tenant75-elasticsearch01-srv",
+                                    "ppv-con-tenant75-elasticsearch02-srv",
+                                    "ppv-con-tenant75-elasticsearch03-srv",
+                                    "ppv-con-tenant75-jenkins01-srv",
+                                    "ppv-con-tenant75-mgmt01-srv",
+                                    "ppv-con-tenant75-svc01-srv",
+                                    "ppv-con-tenant75-svc02-srv",
+                                    "ppv-con-tenant75-web01-srv",
+                                    "ppv-con-tenant75-web02-srv",
+                                    "ppv-con-tenant75-spark-master"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "runbook_url": "https://pending.ignore",
+                "critical_threshold": {
+                    "duration_minutes": 10
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant75_elasticsearch_cpu",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "like": {
+                                "ec2Tag_Name": "ppv-con-tenant75-elasticsearch"
+                            }
+                        }
+                    ]
+                },
+                "event_type": "SystemSample",
+                "select_value": "cpuPercent",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 10,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant75_elasticsearch_memory",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "like": {
+                                "ec2Tag_Name": "ppv-con-tenant75-elasticsearch"
+                            }
+                        }
+                    ]
+                },
+                "event_type": "SystemSample",
+                "select_value": "memoryUsedBytes/memoryTotalBytes*100",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 80,
+                    "duration_minutes": 15,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 70,
+                    "duration_minutes": 15,
+                    "time_function": "all"
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "infra_metric",
+                "name": "ppv_tenant75_spark_minion_memory",
+                "enabled": true,
+                "filter": {
+                    "and": [
+                        {
+                            "like": {
+                                "displayName": "ppv-con-tenant75-scs"
+                            }
+                        }
+                    ]
+                },
+                "event_type": "SystemSample",
+                "select_value": "memoryUsedBytes/memoryTotalBytes*100",
+                "comparison": "above",
+                "critical_threshold": {
+                    "value": 90,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                },
+                "warning_threshold": {
+                    "value": 80,
+                    "duration_minutes": 30,
+                    "time_function": "all"
+                }
+            }
+        }
+    ]
+}

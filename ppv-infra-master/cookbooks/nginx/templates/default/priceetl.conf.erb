@@ -1,0 +1,12 @@
+location <%=@url_context %>/priceetl {
+	alias /opt/periscope/priceetl/public;
+}
+
+location <%=@url_context %>/priceetl/api/ {
+	client_max_body_size 500m;
+	proxy_pass http://localhost:5007/;
+	proxy_set_header Host $host;
+	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	proxy_set_header X-Forwarded-Proto "https";
+}

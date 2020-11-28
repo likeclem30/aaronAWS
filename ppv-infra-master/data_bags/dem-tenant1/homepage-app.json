@@ -1,0 +1,30 @@
+{
+  "id": "homepage-app",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url": "http://demo-sbsvc.periscope-solutions.local:5003",
+
+  "main_menu_items": [
+  {
+  	"id": "1",
+  	"url": "/demapp/perf/home.html",
+  	"title": "Home"
+  },{
+  	"id": "2",
+  	"url": "/demapp/perf",
+  	"title": "Analytics"
+  },{
+    "id": "3",
+    "url": "/demapp/action-workflow",
+    "title": "Action workflow"
+  },{
+	"id": "4",
+  	"url": "/demapp/sb",
+  	"title": "Storyboard"
+  }],
+  
+  "logout_item": {
+    "url": "/demapp/auth/logout",
+    "title": "Log out"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "submarine-home",
+  "homepage_service_url": "https://dev.periscope.mckinsey-solutions.com/admin/homepage",
+  "heartbeat_path": "/admin/auth/heartbeat",
+  "login_path": "/admin/auth/login",
+  "logout_path": "/admin/auth/logout"
+}
