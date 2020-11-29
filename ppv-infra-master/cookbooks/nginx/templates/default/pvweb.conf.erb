@@ -1,0 +1,31 @@
+location = <%= @url_context %>/ {
+    rewrite ^<%= @url_context %> <%= @url_context %>/perf/home.html;
+}
+
+location = <%= @url_context %> {
+    rewrite ^ <%= @url_context %>/ redirect;
+}
+
+location <%= @url_context %>/perf/ {
+    proxy_pass http://localhost:5000/;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+
+location <%= @url_context %>/perf {
+    rewrite ^<%= @url_context %>/perf(.*)$ $http_x_forwarded_proto://$domain/<%= @url_context %>/perf/$1 permanent;
+}
+
+location <%= @url_context %>/public/ {
+    proxy_pass http://localhost:5000/public/;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto "http";
+}
+
+location <%= @url_context %>/perf/public/ {
+    proxy_pass http://localhost:5000/public/;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto "http";
+}

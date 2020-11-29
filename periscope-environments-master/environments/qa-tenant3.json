@@ -1,0 +1,36 @@
+{
+  "name": "qa-tenant3",
+  "description": "",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {},
+  "override_attributes": {
+    "ssh_user_name": "centos",
+    "key_name": "PPVNATDefault",
+    "ssl_verify_mode": "verify_none",
+    "client_name": "ppv-deploy",
+    "signing_key_filename": "/opt/chef-repo/.chef/ppv-deploy.pem",
+    "periscope": {
+      "tenant_id": "tenant3",
+      "environment_code": "qa",
+      "databag_name": "qa-tenant3",
+      "application_context": "/qaapp3",
+      "admin_context": "/qaadmin3",
+      "authorized_email_domains": "thoughtworks.com,mckinsey.com,external.mckinsey.com",
+      "tenant_modules": ["pv", "sb", "itracker"],
+      "machine": {
+        "groups": {
+          "web": { "number_of_machines": 1 },
+          "svc": { "number_of_machines": 1 }
+        }
+      },
+      "env": {
+        "chef_server_url": "https://dev-chefserver.periscope.mckinsey-solutions.com/organizations/ppv-qa-tenant3/"
+      },
+      "auth0_domain": "ppv-qa-tenant3.sso-npn.periscope-solutions.com"
+    },
+    "pcas-admin": {
+      "connection_name": "ppv-qa-tenant3-database"
+    }
+  }
+}

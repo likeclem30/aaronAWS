@@ -1,0 +1,19 @@
+{
+  "name": "pv-db-migration",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": ["role[base]","recipe[db::default]","recipe[db::pvdbmigration]","recipe[dns::private_dns_entry]"
+
+  ],
+  "env_run_lists": { 
+
+  }
+}
+

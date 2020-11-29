@@ -1,0 +1,23 @@
+{
+  "id": "homepage-app-for-admin",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url": "http://ppv-con-tenant2-svc.periscope-solutions.local:5003",
+  "main_menu_items": [
+    {
+      "id": "perfadmin",
+      "url": "/coke/admin/#/perf/home",
+      "title": "Data Visualization",
+      "manifestUrl": "https://app.periscope-solutions.com/coke/admin/perf/rev-manifest.json"
+    },
+    {
+      "id": "pcasadmin",
+      "url": "/coke/admin/users/#/admin",
+      "title": "User management"
+    }
+  ],
+  "logout_item": {
+    "url": "/coke/admin/auth/logout",
+    "title": "Log out"
+  }
+}

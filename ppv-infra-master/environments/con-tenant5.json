@@ -1,0 +1,119 @@
+{
+  "name": "con-tenant5",
+  "description": "",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {},
+  "override_attributes": {
+    "tenant_id": "tenant5",
+    "base_app_url": "/solvay",
+    "infra": {
+      "databag_item": "env",
+      "databag_name": "con-tenant5",
+      "chef_server_url": "https://chef.mckinsey-solutions.com/organizations/ppv-con-tenant5",
+      "gem_source": "https://nexus.mckinsey-solutions.com/nexus/content/repositories/rubygems-org/"
+    },
+    "mash-bitdefender": {
+      "s3-bucket": "ndm-ppv-common",
+      "s3-win-bin-path": "/bitdefender/bitdefender-ppv-win64.zip",
+      "s3-lin-bin-path": "/bitdefender",
+      "s3-lin-bin-file": "bitdefender-ppv-unix64.tar",
+      "s3-https-lin-checksum": "6fed0cbba7e63295b894bd55f70e95b35acc37536c5daf017b9c4037d5c87098",
+      "s3-https-win-checksum": "b77765da9a050ebff893173ecf6a570cb5b4929c3e3e01f6e85a2a5b3b53b711",
+      "lin-install-method": "s3-https",
+      "win-install-method": "s3-https"
+    },
+    "dns": {
+      "databag_item": "env",
+      "databag_name": "con-tenant5"
+    },
+    "nginx": {
+      "pv-web": {
+        "databag_name": "con-tenant5",
+        "databag_item": "pvweb"
+      },
+      "pv-seed-svc": {
+        "databag_name": "con-tenant5",
+        "databag_item": "pvseedsvc"
+      },
+      "repo_url": "https://nexus.mckinsey-solutions.com/nexus/content/repositories/third-party-rpm",
+      "repo_name": "third-party-rpm"
+    },
+    "splunk": {
+      "server_endpoint": "splunk.mckinsey-solutions.com",
+      "windows_ta": {
+        "url": "https://s3.amazonaws.com/ndm-ppv-common/splunk/windows/ta/splunk-add-on-for-microsoft-windows_483.zip",
+        "checksum": "84d8f6e95e7b42b284580e69d504429aaa62f2ec0a303226e579863458326c0a"
+      },
+      "forwarder": {
+        "windows_url": "https://s3.amazonaws.com/ndm-ppv-common/splunk/windows/forwarder/64bit/splunkforwarder-6.3.3-f44afce176d0-x64-release.msi",
+        "url": "https://s3.amazonaws.com/ndm-ppv-common/splunk/linux/forwarder/64bit/splunkforwarder-6.3.3-f44afce176d0-linux-2.6-x86_64.rpm"
+      }
+    },
+    "assets": {
+      "databag_name": "con-tenant5"
+    },
+    "db": {
+      "databag_name": "con-tenant5"
+    },
+    "ppt": {
+      "databag_name": "con-tenant5"
+    },
+    "pcas": {
+      "databag_name": "con-tenant5"
+    },
+    "pcas-admin": {
+      "databag_name": "con-tenant5"
+    },
+    "pv-seed-svc": {
+      "databag_name": "con-tenant5"
+    },
+    "pv-web": {
+      "databag_name": "con-tenant5"
+    },
+    "sb": {
+      "databag_name": "con-tenant5"
+    },
+    "token-svc": {
+      "databag_name": "con-tenant5"
+    },
+    "it": {
+      "databag_name": "con-tenant5"
+    },
+    "it_admin": {
+      "databag_name": "con-tenant5"
+    },
+    "homepage-app": {
+      "databag_name": "con-tenant5"
+    },
+    "submarine": {
+      "databag_name": "con-tenant5"
+    },
+    "postgresql": {
+      "config": {
+        "data_directory": "/data/pg"
+      },
+      "dir": "/data/pg"
+    }
+  },
+  "cookbook_versions": {
+    "database": "4.0.12",
+    "db": "= 1.3.0",
+    "dns": "= 1.2.0",
+    "infra": "= 1.3.0",
+    "nginx": "= 1.3.1",
+    "pcas": "= 1.3.0",
+    "pv-seed-svc": "= 1.3.0",
+    "pv-web": "= 1.3.0",
+    "ppt": "= 1.1.0",
+    "sb": "= 1.3.0",
+    "it": "= 1.3.0",
+    "assets": "= 1.3.0",
+    "token-svc": "= 1.3.0",
+    "pcas-admin": "= 1.4.0",
+    "homepage-app": "= 1.3.0",
+    "submarine-home": "= 1.3.0",
+    "it-admin": "= 1.3.0",
+    "pv-monitoring": "= 1.3.0"
+  }
+}

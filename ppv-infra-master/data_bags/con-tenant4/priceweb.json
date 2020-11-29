@@ -1,0 +1,6 @@
+{
+	"id": "priceweb",
+	"login_route": "/khl-preview/auth/login",
+	"logout_route": "/khl-preview/auth/logout",
+	"base_route": "/khl-preview"
+}

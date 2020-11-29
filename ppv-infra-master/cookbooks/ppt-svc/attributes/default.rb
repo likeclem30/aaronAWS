@@ -1,0 +1,5 @@
+default['ppt-svc']['component_name'] = 'PowerpointService'
+default['ppt-svc']['install_path'] = 'C:\periscope'
+default['ppt-svc']['package_source'] = 'http://dev-nexus.mckinsey-solutions.com:8081/nexus/service/local/nuget/nuget-releases/'
+default['ppt-svc']['nuget_install_path'] = 'C:/nuget'
+default['ppt-svc']['log_directory'] = 'C:/Logs/PowerpointService'

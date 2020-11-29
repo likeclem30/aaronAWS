@@ -1,0 +1,8 @@
+{
+  "host":"localhost",
+  "db_name":"itracker",
+  "id":"itdbmigration",
+  "schema_name":"itracker",
+  "sslmode":"disable",
+  "script_path":"/opt/periscope/impact-tracker-server/public"
+}

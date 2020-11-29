@@ -1,0 +1,67 @@
+{
+  "name": "price-svc",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath" : "/opt/periscope/price-calcenginedataservice/logs/CalcengineData-Service.json.log",
+            "sourcetype" : "price-calcenginedataservice"
+          },
+          {
+            "filepath" : "/opt/periscope/price-competitorservice/logs/Competitor-Service.json.log",
+            "sourcetype" : "price-competitorservice"
+          },
+          {
+            "filepath" : "/opt/periscope/price-configurationservice/logs/Configuration-Service.json.log",
+            "sourcetype" : "price-configurationservice"
+          },
+          {
+            "filepath" : "/opt/periscope/price-dimensiondataservice/logs/Dimensiondata-Service.json.log",
+            "sourcetype" : "price-dimensiondataservice"
+          },
+          {
+            "filepath" : "/opt/periscope/price-metadataservice/logs/Metadata-Service.json.log",
+            "sourcetype" : "price-metadataservice"
+          },
+          {
+            "filepath" : "/opt/periscope/price-queryservice/logs/Query-Service.json.log",
+            "sourcetype" : "price-queryservice"
+          },
+          {
+            "filepath" : "/opt/periscope/token-service/logs/Token-service.json.log",
+            "sourcetype" : "token-service"
+          },
+           {
+            "filepath" : "/var/log/audit/audit.log",
+            "sourcetype" : "auditlog"
+          },
+           {
+            "filepath" : "/var/log/messages",
+            "sourcetype" : "syslogs"
+          }
+        ]
+      }
+    },
+   "security": {
+    "iptables_ports": ["80", "22", "6001", "6009", "6007", "6005", "6008", "6002", "6011"]
+  }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "role[base]",
+      "recipe[security::linux_hardening]",
+      "recipe[price::competitorservice]",
+      "recipe[price::configurationservice]",
+      "recipe[price::metadataservice]",
+      "recipe[price::dimensiondataservice]",
+      "recipe[price::queryservice]",
+      "recipe[price::calcenginedataservice]",
+      "recipe[mash-splunk]"
+  ]
+}

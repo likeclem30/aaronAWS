@@ -1,0 +1,7 @@
+require 'rbconfig'
+
+source ENV['GEM_SERVER'] || 'https://rubygems.org'
+
+group :test, :development do
+  gem 'cookbook_utils', git: 'git@git.mckinsey-solutions.com:infra/cookbook_utils', tag: 'v0.2.1'
+end

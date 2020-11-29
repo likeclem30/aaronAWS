@@ -1,0 +1,21 @@
+{
+  "name": "shared-assets-for-admin",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "nginx": {
+      "url_context": "admin_context"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "role[shared-assets]"
+  ],
+
+  "env_run_lists": {
+  }
+}

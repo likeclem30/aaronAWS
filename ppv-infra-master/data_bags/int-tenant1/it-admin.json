@@ -1,0 +1,7 @@
+{
+  "id": "it-admin",
+  "app_id": "itracker",
+  "database_server": "ppv-int-tenant1-data01-srv.periscope-solutions.local",
+  "token_service_url": "http://int-sbsvc.periscope-solutions.local:5003",
+  "login_url": "/intadmin/auth/login?returnUrl=/intadmin/#/action-workflow"
+}

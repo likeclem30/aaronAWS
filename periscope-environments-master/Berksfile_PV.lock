@@ -1,0 +1,444 @@
+DEPENDENCIES
+  bitdefender
+    path: cookbooks/bitdefender
+  build-essential
+    git: git@git.mckinsey-solutions.com:infra/cookbook-build-essential.git
+    revision: c6b0f201f056658becaefa143a26cb84d7f45094
+  chef-handler
+    git: git@git.mckinsey-solutions.com:infra/cookbook-chef-handler.git
+    revision: 5264e347898717fdd9034ffdbdb05645f18f0156
+  chef-splunk
+    git: git@git.mckinsey-solutions.com:infra/cookbook-chef-splunk.git
+    revision: 17f97abf9ab823762fd08edcd8e1cc1f62904225
+  chef-sugar
+    git: git@git.mckinsey-solutions.com:infra/cookbook-chef-sugar.git
+    revision: e8cfaac98ceb0221cbf2186a781d4a1c1a859768
+  chef-vault
+    git: git@git.mckinsey-solutions.com:infra/cookbook-chef-vault.git
+    revision: 39bf2810580455716d3716bda301cf75db775e7d
+  cookbook-rds-postgres
+    git: git@git.mckinsey-solutions.com:infra/cookbook-rds-postgres.git
+    revision: 654ff21904f5ce962e4300476362b93f5bc5c49a
+    branch: master
+  database
+    git: git@git.mckinsey-solutions.com:infra/cookbook-database.git
+    revision: 97dc6c53d22a29269271c63678dd6417172ffead
+  db-helper
+    git: git@git.mckinsey-solutions.com:shared/db-helper.git
+    revision: 22bba40f64d0c18438e3dd0103db2bcf9b66e088
+    rel: cookbook/db-helper
+  homepage-app
+    git: git@git.mckinsey-solutions.com:shared/homepage-app.git
+    revision: ea618a99b519c9bf0f821dc8f74aa3c481d029b3
+    rel: cookbook/homepage-app
+  homepage-svc-role
+    path: cookbooks/homepage-svc-role
+  homepage-web
+    git: git@git.mckinsey-solutions.com:shared/homepage-web.git
+    revision: c59dd25e2adf9a5ef883b891d4083ff917ac53d7
+    rel: cookbook/homepage-web
+  iis
+    git: git@git.mckinsey-solutions.com:infra/cookbook-iis.git
+    revision: f1771ffa605bced0b03f5f39a6a3af70aae3327e
+  impact-tracker-server-cookbook
+    git: git@git.mckinsey-solutions.com:impact/impact-tracker-server.git
+    revision: 61a24f7b89ec32cc471fd9dfbb209dbe016b2c6c
+    rel: cookbook/impact-tracker-server-cookbook
+  impact-tracker-web-assets-cookbook
+    git: git@git.mckinsey-solutions.com:impact/impact-tracker-web.git
+    revision: 6152843a64bcf06a0bc8e48a988279c669ff9d88
+    rel: cookbook/impact-tracker-web-assets-cookbook
+  it-admin-svc-role
+    path: cookbooks/it-admin-svc-role
+  it-admin-web-role
+    path: cookbooks/it-admin-web-role
+  it-db-migration-role
+    path: cookbooks/it-db-migration-role
+  it-db-role
+    path: cookbooks/it-db-role
+  it-svc-role
+    path: cookbooks/it-svc-role
+  it-web-role
+    path: cookbooks/it-web-role
+  itracker-admin-assets-cookbook
+    git: git@git.mckinsey-solutions.com:impact/itracker-admin-assets.git
+    revision: 913a6192dbfab51224ab482266bc2ca123ba49e7
+    rel: cookbook/itracker-admin-assets-cookbook
+  itracker-admin-service-cookbook
+    git: git@git.mckinsey-solutions.com:impact/itracker-admin-service.git
+    revision: f58c23b8f421e4e7803d728d79d62fd84a51bb6b
+    rel: cookbook/itracker-admin-service-cookbook
+  linux-role
+    path: cookbooks/linux-role
+  login-web-assets-cookbook
+    git: git@git.mckinsey-solutions.com:pcas/login-assets.git
+    revision: aa82ee0bf7c026fa6ecbf0e3ef06517ff5745eff
+    rel: cookbook/login-web-assets-cookbook
+  login-web-cookbook
+    git: git@git.mckinsey-solutions.com:pcas/login.git
+    revision: 610b1b818a84e17c5b50505f795b28c278fab01b
+    rel: cookbook/login-web-cookbook
+  mash-bitdefender
+    git: git@git.mckinsey-solutions.com:mash-shared/cookbook-mash-bitdefender.git
+    revision: 880279cec0fa1a1ebaf423b61427f15b0b3da356
+  mash-splunk
+    git: git@git.mckinsey-solutions.com:mash-shared/cookbook-mash-splunk.git
+    revision: 7d9e69f5b1aefa34f5d4dc3318ce5d78773b7f5f
+  monitoring-role
+    path: cookbooks/monitoring-role
+  nuget
+    git: git@git.mckinsey-solutions.com:infra/cookbook-nuget.git
+    revision: 00f12682f50d8bea4c528eb2d1d9c6abb127ef5b
+  openssl
+    git: git@git.mckinsey-solutions.com:infra/cookbook-openssl.git
+    revision: 1d10bbaff5498b875f1c1907bd9d043da5e3b9ef
+  pcas-admin-assets-cookbook
+    git: git@git.mckinsey-solutions.com:pcas/admin-assets.git
+    revision: 9d29d3228cc8b41ba3b3c129ce866372b8bc7008
+    rel: cookbook/pcas-admin-assets-cookbook
+  pcas-admin-cookbook
+    git: git@git.mckinsey-solutions.com:pcas/admin.git
+    revision: 75273ba2b8ec386ebd71e1424910dbed26064d21
+    rel: cookbook/pcas-admin-cookbook
+  pcas-admin-role
+    path: cookbooks/pcas-admin-role
+  pcas-role
+    path: cookbooks/pcas-role
+  periscope-aws-linux-role
+    path: cookbooks/periscope-aws-linux-role
+  periscope-aws-windows-role
+    path: cookbooks/periscope-aws-windows-role
+  periscope-cookbook-defaults
+    git: git@git.mckinsey-solutions.com:infra/periscope-cookbook-defaults.git
+    revision: dd34cc83b52e613339fabb5cc80656d36fb8e46b
+  periscope-linux
+    git: git@git.mckinsey-solutions.com:infra/periscope-linux.git
+    revision: 3966ac98bee9c7fdf8fff51fe56616377450e5ec
+  periscope-monitoring-cookbook
+    git: git@git.mckinsey-solutions.com:infra/periscope-monitoring-cookbook.git
+    revision: f0c213f0100a9feb01294fc5bd0f438f1c1c128c
+  periscope-nginx
+    git: git@git.mckinsey-solutions.com:infra/periscope-nginx.git
+    revision: 684195857332c0fec5a780eb98dac1986b5a1db9
+  periscope-windows
+    git: git@git.mckinsey-solutions.com:infra/periscope-windows.git
+    revision: 7db0fb0070def760443e1da2b7a3955ce8e064b9
+  periscope_infra
+    git: git@git.mckinsey-solutions.com:infra/periscope-infra.git
+    revision: 597b02b654a2c31bad8267fe2c9d72abfd8225e9
+  postgres-linux-role
+    path: cookbooks/postgres-linux-role
+  postgresql
+    git: git@git.mckinsey-solutions.com:infra/cookbook-postgresql.git
+    revision: 2801fa7a3455c91646a90962f148622b097d03f7
+  ppt-svc
+    git: git@git.mckinsey-solutions.com:performance/PowerpointService.git
+    revision: 59a5d37811fca15be2d9a8af22a6304cd659fa4d
+    rel: cookbook/ppt-svc
+  ppt-svc-role
+    path: cookbooks/ppt-svc-role
+  pv-db-migration-role
+    path: cookbooks/pv-db-migration-role
+  pv-db-role
+    path: cookbooks/pv-db-role
+  pv-nginx-role
+    path: cookbooks/pv-nginx-role
+  pv-pcas-for-admin-role
+    path: cookbooks/pv-pcas-for-admin-role
+  pv-seed-svc-role
+    path: cookbooks/pv-seed-svc-role
+  pv-submarine-role
+    path: cookbooks/pv-submarine-role
+  pv-web
+    git: git@git.mckinsey-solutions.com:performance/ppv.git
+    revision: f5ad36fd41160b4e21826c0d80d46493c05b7db0
+    rel: cookbook/pv-web
+  pv-web-assets
+    git: git@git.mckinsey-solutions.com:performance/ppv.git
+    revision: f5ad36fd41160b4e21826c0d80d46493c05b7db0
+    rel: cookbook/pv-web-assets
+  pv-web-role
+    path: cookbooks/pv-web-role
+  pv_seed_assets
+    git: git@git.mckinsey-solutions.com:performance/landingpage-seed-assets.git
+    revision: baa5f8f77e7395d65f224fd293f52b9ba06f980a
+    rel: cookbook/pv_seed_assets
+  pv_seed_svc
+    git: git@git.mckinsey-solutions.com:performance/landingpage-seed.git
+    revision: 4b37754ae6bf02207653598d3a0bf3fcb9a438a7
+    rel: cookbook/pv_seed_svc
+  route53
+    git: git@git.mckinsey-solutions.com:infra/cookbook-route53.git
+    revision: 67ad878deb9911b6f8393bea278c5e10298ba1a3
+  sb-db-migration-role
+    path: cookbooks/sb-db-migration-role
+  sb-db-role
+    path: cookbooks/sb-db-role
+  sb-svc
+    git: git@git.mckinsey-solutions.com:storyboard/sb-svc.git
+    revision: 7ae7964f389ac77c4e171fb57fc2a7244dcb73ec
+    rel: cookbook/sb-svc
+  sb-svc-role
+    path: cookbooks/sb-svc-role
+  sb-web
+    git: git@git.mckinsey-solutions.com:storyboard/sb-web.git
+    revision: 7126d1e8251f7e8b2452c135a89d8e253a00b3cc
+    rel: cookbook/sb-web
+  sb-web-assets
+    git: git@git.mckinsey-solutions.com:storyboard/sb-web.git
+    revision: 7126d1e8251f7e8b2452c135a89d8e253a00b3cc
+    rel: cookbook/sb-web-assets
+  sb-web-role
+    path: cookbooks/sb-web-role
+  shared_assets
+    git: git@git.mckinsey-solutions.com:shared/shared_assets.git
+    revision: c07b89de6c033341ea2501a3f452d1c578a0b65f
+    rel: cookbook/shared_assets
+  submarine-home-assets
+    git: git@git.mckinsey-solutions.com:shared/submarine-home-assets.git
+    revision: bc9ae9260fda304a470683f9eac3ab023854eb3c
+    rel: cookbook/submarine-home-assets
+  submarine-home-role
+    path: cookbooks/submarine-home-role
+  tableau-gateway-cookbook
+    git: git@git.mckinsey-solutions.com:pcas/tableau-gateway.git
+    revision: bc18697604f2f9e269629599c9af3bebea0b6467
+    rel: cookbook/tableau-gateway-cookbook
+  tableau-gateway-svc-role
+    path: cookbooks/tableau-gateway-svc-role
+  test-kitchen-helper
+    git: git@git.mckinsey-solutions.com:infra/cookbook-test-kitchen-helper.git
+    revision: a0c494c1f6a0e65dda0e7d0c72915981a537e25a
+  token-service-cookbook
+    git: git@git.mckinsey-solutions.com:pcas/token-service.git
+    revision: 502cb38b39cc187d4c15c741d0bae2ddc02b056f
+    rel: cookbook/token-service-cookbook
+  token-svc-role
+    path: cookbooks/token-svc-role
+  xml
+    git: git@git.mckinsey-solutions.com:infra/cookbook-xml.git
+    revision: 23a61d78f3416fa68432ae8da70da836440a25cc
+  yum
+    git: git@git.mckinsey-solutions.com:infra/cookbook-yum.git
+    revision: 265b742962dadcbc0b7236b5bc995bca9af8372f
+
+GRAPH
+  bitdefender (0.1.0)
+    mash-bitdefender (>= 0.0.0)
+  build-essential (2.2.3)
+  chef-handler (1.3.0)
+  chef-splunk (1.5.0)
+    chef-vault (>= 1.0.4)
+  chef-sugar (3.3.1)
+  chef-vault (1.3.3)
+  chef_handler (1.4.0)
+  cookbook-rds-postgres (1.0.0)
+    periscope-cookbook-defaults (>= 0.0.0)
+    route53 (>= 0.0.0)
+  database (4.0.12)
+    postgresql (>= 4.0.5)
+  db-helper (1.2.112)
+  homepage-app (1.2.2)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+  homepage-svc-role (0.1.0)
+    homepage-app (>= 0.0.0)
+    homepage-web (>= 0.0.0)
+    shared_assets (>= 0.0.0)
+  homepage-web (1.1.83)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+  iis (4.1.8)
+    windows (>= 1.34.6)
+  impact-tracker-server-cookbook (1.4.14)
+    cookbook-rds-postgres (>= 0.0.0)
+    database (>= 0.0.0)
+    periscope-cookbook-defaults (>= 0.0.0)
+    yum (>= 0.0.0)
+  impact-tracker-web-assets-cookbook (1.3.320)
+    periscope-cookbook-defaults (>= 0.0.0)
+    yum (>= 0.0.0)
+  it-admin-svc-role (0.1.0)
+    itracker-admin-service-cookbook (>= 0.0.0)
+    mash-splunk (>= 0.0.0)
+  it-admin-web-role (0.1.0)
+    itracker-admin-assets-cookbook (>= 0.0.0)
+  it-db-migration-role (0.1.0)
+    db-helper (>= 0.0.0)
+    impact-tracker-server-cookbook (>= 0.0.0)
+  it-db-role (0.1.0)
+    impact-tracker-server-cookbook (>= 0.0.0)
+    mash-splunk (>= 0.0.0)
+    postgresql (>= 0.0.0)
+  it-svc-role (0.1.0)
+    impact-tracker-server-cookbook (>= 0.0.0)
+    mash-splunk (>= 0.0.0)
+  it-web-role (0.1.0)
+    impact-tracker-server-cookbook (>= 0.0.0)
+    impact-tracker-web-assets-cookbook (>= 0.0.0)
+  itracker-admin-assets-cookbook (1.4.2)
+    periscope-cookbook-defaults (>= 0.0.0)
+    yum (>= 0.0.0)
+  itracker-admin-service-cookbook (1.4.11)
+    periscope-cookbook-defaults (>= 0.0.0)
+    yum (>= 0.0.0)
+  linux-role (0.1.0)
+    periscope-linux (>= 0.0.0)
+  login-web-assets-cookbook (1.3.27)
+    periscope-cookbook-defaults (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  login-web-cookbook (1.3.24)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  mash-bitdefender (1.0.0)
+    windows (>= 0.0.0)
+  mash-splunk (1.1.1)
+    chef-splunk (>= 0.0.0)
+    windows (>= 0.0.0)
+  monitoring-role (0.1.0)
+    periscope-monitoring-cookbook (>= 0.0.0)
+  nuget (0.2.0)
+  openssl (4.4.0)
+    chef-sugar (>= 3.1.1)
+  pcas-admin-assets-cookbook (1.5.31)
+    periscope-cookbook-defaults (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  pcas-admin-cookbook (2.0.78)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  pcas-admin-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    pcas-admin-assets-cookbook (>= 0.0.0)
+    pcas-admin-cookbook (>= 0.0.0)
+  pcas-role (0.1.0)
+    login-web-assets-cookbook (>= 0.0.0)
+    login-web-cookbook (>= 0.0.0)
+  periscope-aws-linux-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    periscope-linux (>= 0.0.0)
+  periscope-aws-windows-role (0.1.0)
+    periscope-windows (>= 0.0.0)
+  periscope-cookbook-defaults (0.1.3)
+  periscope-linux (0.1.0)
+  periscope-monitoring-cookbook (1.0.7)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  periscope-nginx (1.0.0)
+  periscope-windows (1.0.0)
+  periscope_infra (1.1.0)
+    cookbook-rds-postgres (>= 0.0.0)
+    periscope-cookbook-defaults (>= 0.0.0)
+    route53 (>= 0.0.0)
+  postgres-linux-role (0.1.0)
+    database (>= 0.0.0)
+    impact-tracker-server-cookbook (>= 0.0.0)
+    periscope-cookbook-defaults (>= 0.0.0)
+    postgresql (>= 0.0.0)
+    pv-web (>= 0.0.0)
+    sb-svc (>= 0.0.0)
+  postgresql (4.0.5)
+    build-essential (>= 0.0.0)
+    openssl (~> 4.0)
+  ppt-svc (1.0.29)
+    iis (>= 0.0.0)
+    nuget (>= 0.2.0)
+    periscope-cookbook-defaults (>= 0.0.0)
+    windows (>= 0.0.0)
+  ppt-svc-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    ppt-svc (>= 0.0.0)
+  pv-db-migration-role (0.1.0)
+    db-helper (>= 0.0.0)
+    pv-web (>= 0.0.0)
+  pv-db-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    postgresql (>= 0.0.0)
+    pv-web (>= 0.0.0)
+  pv-nginx-role (0.1.0)
+    pv-web (>= 0.0.0)
+  pv-pcas-for-admin-role (0.1.0)
+    login-web-cookbook (>= 0.0.0)
+  pv-seed-svc-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    pv_seed_assets (>= 0.0.0)
+    pv_seed_svc (>= 0.0.0)
+  pv-submarine-role (0.1.0)
+    homepage-app (>= 0.0.0)
+    submarine-home-assets (>= 0.0.0)
+  pv-web (1.6.12)
+    cookbook-rds-postgres (>= 0.0.0)
+    database (>= 0.0.0)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+  pv-web-assets (1.6.5)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+  pv-web-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    pv-web (>= 0.0.0)
+    pv-web-assets (>= 0.0.0)
+  pv_seed_assets (1.6.4)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  pv_seed_svc (1.5.4)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+  route53 (0.4.0)
+    xml (>= 0.0.0)
+  sb-db-migration-role (0.1.0)
+    db-helper (>= 0.0.0)
+    sb-svc (>= 0.0.0)
+  sb-db-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    postgresql (>= 0.0.0)
+    sb-svc (>= 0.0.0)
+  sb-svc (1.6.4)
+    cookbook-rds-postgres (>= 0.0.0)
+    database (>= 0.0.0)
+    periscope-cookbook-defaults (>= 0.0.0)
+  sb-svc-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    sb-svc (>= 0.0.0)
+  sb-web (1.6.7)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+  sb-web-assets (1.5.40)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+  sb-web-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    sb-web (>= 0.0.0)
+    sb-web-assets (>= 0.0.0)
+  shared_assets (0.1.211)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  submarine-home-assets (1.2.53)
+    periscope-cookbook-defaults (>= 0.0.0)
+    periscope-nginx (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  submarine-home-role (0.1.0)
+    submarine-home-assets (>= 0.0.0)
+  tableau-gateway-cookbook (1.0.15)
+    periscope-cookbook-defaults (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  tableau-gateway-svc-role (0.1.0)
+    tableau-gateway-cookbook (>= 0.0.0)
+  test-kitchen-helper (0.0.1)
+    yum (>= 0.0.0)
+  token-service-cookbook (1.1.27)
+    periscope-cookbook-defaults (>= 0.0.0)
+    test-kitchen-helper (>= 0.0.0)
+  token-svc-role (0.1.0)
+    mash-splunk (>= 0.0.0)
+    token-service-cookbook (>= 0.0.0)
+  windows (1.44.1)
+    chef_handler (>= 0.0.0)
+  xml (2.0.0)
+    build-essential (>= 0.0.0)
+    chef-sugar (>= 0.0.0)
+  yum (3.11.0)

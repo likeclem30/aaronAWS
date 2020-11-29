@@ -1,0 +1,18 @@
+{
+  "name": "homepage-svc-for-admin",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "homepage": {
+      "machine_type_filter": "linux_mgmt"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [ 
+    "recipe[homepage-svc-role]" 
+  ],
+  "env_run_lists": { 
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "qa-tenant1",
+  "description": "",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {},
+  "override_attributes": {
+    "periscope": {
+      "tenant_id": "tenant1",
+      "environment_code": "qa",
+      "databag_name": "qa-tenant1",
+      "application_context": "/qaapp",
+      "admin_context": "/qaadmin",
+      "tenant_modules": ["pv", "sb", "itracker"],
+      "authorized_email_domains": "thoughtworks.com,mckinsey.com,external.mckinsey.com",
+      "env": {
+        "chef_server_url": "https://dev-chefserver.periscope.mckinsey-solutions.com/organizations/ppv-tenant1"
+      },
+      "machine": {
+        "groups": {
+          "web": { "number_of_machines": 1 },
+          "svc": { "number_of_machines": 1 }
+        }
+      },
+      "auth0_domain": "ppv-dev-tenant1.sso-npn.periscope-solutions.com"
+    },
+    "pcas-admin": {
+      "connection_name": "ppv-dev-tenant1-database"
+    },
+    "pv": {
+      "db": {
+        "migration": {
+          "host": "ppv-qa-tenant1-data.periscope-solutions.local"
+        }
+      }
+    }
+  }
+}

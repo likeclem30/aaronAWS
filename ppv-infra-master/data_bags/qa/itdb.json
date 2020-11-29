@@ -1,0 +1,6 @@
+{
+  "app_database":"itracker",
+  "id":"itdb",
+  "login_user":"postgres",
+  "schema_name":"itracker"
+}

@@ -1,0 +1,8 @@
+= DESCRIPTION:
+  Installs nginx
+= REQUIREMENTS:
+
+= ATTRIBUTES:
+
+= USAGE:
+

@@ -1,0 +1,13 @@
+{
+  "id": "sbweb",
+  "app_id": "4",
+  "heartbeat_url": "/intapp/auth/heartbeat",
+  "login_url": "/intapp/auth/login?returnUrl=/intapp/sb",
+  "logout_url": "/intapp/auth/logout",
+  "promotion_effectiveness_url": "https://dev.periscope.mckinsey-solutions.com/intapp/perf",
+  "promotion_planning_url": "",
+  "storyboard_service_url": "http://int-sbsvc.periscope-solutions.local:5001",
+  "token_service_url": "http://int-sbsvc.periscope-solutions.local:5003",
+  "use_auth0": "true",
+  "homepage_service_url": "https://dev.periscope.mckinsey-solutions.com/intapp/homepage"
+}

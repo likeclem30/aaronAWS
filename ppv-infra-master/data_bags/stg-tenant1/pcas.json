@@ -1,0 +1,21 @@
+{
+  "id": "pcas",
+  "static_assets_root_dir": "public",
+  "auth0_domain": "ppv-stg-tenant1.sso-npn.periscope-solutions.com",
+  "auth0_logout_url": "https://%[1]s/v2/logout?federated",
+  "tableau_logout_url": " https://tableau-npn.periscope-solutions.com/auth/logout",
+  "token_service_base_url": "http://ppv-stg-tenant1-svc.periscope-solutions.local:5003",
+  "default_redirection_route": "/",
+  "login_redirection_timeout": 2000,
+  "app_domain": "stg.periscope.mckinsey-solutions.com",
+  "app_config": {
+    "login_route": "/app/tenant1/auth/login",
+    "redirect_route": "/app/tenant1/auth/loginsuccess",
+    "default_login_redirection_url": "https://stg.periscope.mckinsey-solutions.com/app/tenant1/perf/home.html"
+  },
+  "admin_config": {
+    "login_route": "/admin/tenant1/auth/login",
+    "redirect_route": "/admin/tenant1/auth/loginsuccess",
+    "default_login_redirection_url": "https://stg.periscope.mckinsey-solutions.com/admin/tenant1/users"
+  }
+}

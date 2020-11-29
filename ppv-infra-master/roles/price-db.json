@@ -1,0 +1,41 @@
+{
+  "name": "price-db",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "splunk": {
+      "windows_ta": {
+        "system_log": {
+          "disabled": "0",
+          "index": "main"
+        }
+      },
+      "windows_ta_mssql": {
+        "error_log": {
+          "disabled": "0",
+          "index": "main"
+        },
+        "agent_log": {
+          "disabled": "0",
+          "index": "main"
+        }
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[infra::awscli_setup]",
+    "recipe[windows-setup::passwordpolicy]",
+    "recipe[db::sqlserver_initialize]",
+    "recipe[db::pricedb]",     
+    "recipe[dns::private_dns_entry]",
+    "recipe[db::sqlserver_backup]",
+    "recipe[mash-splunk]"
+  ],
+  "env_run_lists": { 
+
+  }
+}

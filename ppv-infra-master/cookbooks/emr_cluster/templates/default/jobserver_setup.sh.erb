@@ -1,0 +1,17 @@
+status=`curl -s -o /dev/null -w "%{http_code}" http://localhost:8090/healthz`
+
+if [ $status !=  200 ]; then
+	echo "setup jobserver"
+	/usr/lib/spark/bin/spark-submit --deploy-mode client --master yarn-client --driver-memory <%= @jobserver_driver_memory %> --driver-java-options '-XX:+UseConcMarkSweepGC -verbose:gc -XX:+PrintGCTimeStamps -Xloggc:<%= @jobserver_install_dir %>/gc.out -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:MaxDirectMemorySize=512M -XX:+HeapDumpOnOutOfMemoryError -Djava.net.preferIPv4Stack=true -Dcom.sun.management.jmxremote.port=9999 -Dcom.sun.management.jmxremote.rmi.port=9999 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dlog4j.configuration=file:<%= @jobserver_install_dir %>/log4j-server.properties -DLOG_DIR=<%= @jobserver_log_path %>' <%= @jobserver_install_dir %>/spark-job-server.jar <%= @jobserver_install_dir %>/env.conf &
+fi
+
+status=`curl -s -o /dev/null -w "%{http_code}" http://localhost:8090/healthz`
+while [ $status !=  200 ]
+do
+   echo "waiting for jobserver..."
+   sleep 2
+   status=`curl -s -o /dev/null -w "%{http_code}" http://localhost:8090/healthz`
+done
+
+echo "uploading calculation engine jar"
+JobServerUrl=localhost:8090 && source /sparkShellHelper.sh && uploadJar /original-calculationengine-1.0.jar calc-eng

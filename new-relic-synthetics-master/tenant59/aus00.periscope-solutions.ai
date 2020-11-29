@@ -1,0 +1,39 @@
+/**
+ *  https://app.periscope-solutions.com/twm/auth/login?returnUrl=%2Ftwm%2Fscorecard%2F1
+ */
+var assert = require('assert');
+var defaultTimeout = 10000;
+/* var BASE_URL = 'https://app.periscope-solutions.com/ausa'; */
+var BASE_URL = 'https://aus00.periscope-solutions.ai/promo';
+var xpathLogin = '/html/body/div/div[1]/div/div[2]/div[2]/a/button';
+/* var LOGIN_URL = '/idp/auth/local?req=tovss672lrrxtcqv7wmtl4i6w&redirect_uri=https://aus00.periscope-solutions.ai/promo/';
+/*var LOGIN_URL = '/auth/login?returnUrl=%2Ftwm%2Fscorecard%2F1';
+var HEALTHCHECK_URL = '/admin/monitoring/';
+
+// Browse healthcheck page and look for the dead badge
+/*
+$browser.get(BASE_URL + HEALTHCHECK_URL)
+$browser.wait(function() {
+  return $browser.getPageSource().then(function(source) {
+    if(source.indexOf('Language Pack Service') !== -1) {
+        console.log('Language pack service found');
+        var status = source.indexOf('badge-status-dead');
+        assert.ok(status === -1, 'Dead status found');
+        
+        return true;
+    } 
+
+    return false;
+  });
+}, defaultTimeout / 2);
+*/
+
+// Login and check for scorecard load
+$browser.get(BASE_URL)
+    .then(() => $browser.waitForAndFindElement($driver.By.xpath(xpathLogin), defaultTimeout).then(e => e.click()))
+    .then(() => $browser.waitForAndFindElement($driver.By.name('login'), defaultTimeout).then(e => e.sendKeys($secure.AUS00_USERNAME)))
+    .then(() => $browser.waitForAndFindElement($driver.By.name('password'), defaultTimeout).then(e => e.sendKeys($secure.AUS00_PASSWORD	)))
+    .then(() => $browser.waitForAndFindElement($driver.By.id('loginButton'), defaultTimeout).then(e => e.click()))
+    //.then(() => $browser.waitForAndFindElement($driver.By.className('scorecard-grid-operations'), defaultTimeout))
+    .then(() => $browser.takeScreenshot());
+

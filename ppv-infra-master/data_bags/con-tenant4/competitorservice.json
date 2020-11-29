@@ -1,0 +1,6 @@
+{
+	"id": "competitorservice",
+	"app_port": "6009",
+	"log_format": "text",
+	"log_level" : "error"
+}

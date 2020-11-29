@@ -1,0 +1,7 @@
+{
+  "id": "it-admin",
+  "app_id": "itracker",
+  "database_server": "ppv-dem-tenant1-data01-srv.periscope-solutions.local",
+  "token_service_url": "http://demo-sbsvc.periscope-solutions.local:5003",
+  "login_url": "/demadmin/auth/login?returnUrl=/demadmin/#/action-workflow"
+}

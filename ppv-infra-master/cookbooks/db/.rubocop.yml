@@ -1,0 +1,14 @@
+ClassLength:
+  Enabled: false
+MethodLength:
+  Enabled: false
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+SignalException:
+  Enabled: false
+CyclomaticComplexity:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/LineLength:
+  Max: 160

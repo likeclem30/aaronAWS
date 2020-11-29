@@ -1,0 +1,38 @@
+{
+  "name": "price-master-prov",
+  "description": "Provisions spark master node with required configuration files",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath" : "/var/log/messages",
+            "sourcetype" : "syslogs"
+          },
+          {
+            "filepath" : "/var/log/spark-job-server",
+            "sourcetype" : "price-master-prov"
+          },
+           {
+            "filepath" : "/var/log/audit/audit.log",
+            "sourcetype" : "auditlog",
+            "index": "audit"
+          }
+        ]
+      }
+    },
+     "security": {
+    "iptables_ports": ["80", "22", "8090"]
+  }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[emr_cluster::configure_master]",
+      "recipe[mash-splunk]",
+      "recipe[security::linux_hardening]"
+  ]
+}

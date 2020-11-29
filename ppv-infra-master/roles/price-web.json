@@ -1,0 +1,48 @@
+{
+  "name": "price-web",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+    "nginx" : {
+      "base_route": "http://localhost:6001/index.html"
+    },
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath" : "/opt/periscope/login-web/logs",
+            "sourcetype" : "login-web"
+          },
+          {
+            "filepath" : "/opt/periscope/price-web/logs/Price-Web.json.log",
+            "sourcetype" : "price-web"
+          },
+          {
+            "filepath" : "/var/log/nginx",
+            "sourcetype" : "price-nginx"
+          },
+           {
+            "filepath" : "/var/log/audit/audit.log",
+            "sourcetype" : "auditlog",
+            "index": "audit"
+          },
+           {
+            "filepath" : "/var/log/messages",
+            "sourcetype" : "syslogs"
+          }
+        ]
+      }
+    },
+     "security": {
+    "iptables_ports": ["80", "22", "6001"]
+  }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "role[base]",
+      "recipe[security::linux_hardening]",
+      "recipe[price::priceservice]",
+      "recipe[nginx::nginx_for_priceweb]",
+      "recipe[mash-splunk]"
+  ]
+}

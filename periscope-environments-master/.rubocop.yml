@@ -1,0 +1,8 @@
+inherit_from:
+  - .rubocop.common.yml
+Metrics/LineLength:
+  Max: 160
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: false
+Lint/UselessAssignment:
+  Enabled: false

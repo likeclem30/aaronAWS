@@ -1,0 +1,7 @@
+source 'https://supermarket.chef.io'
+
+metadata
+
+cookbook 'common', path: '../common'
+cookbook 'postgresql', git: 'git@git.mckinsey-solutions.com:infra/cookbook-postgresql.git'
+cookbook 'database', git: 'git@git.mckinsey-solutions.com:infra/cookbook-database.git', tag: '4.0.12'

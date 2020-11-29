@@ -1,0 +1,99 @@
+source 'https://supermarket.chef.io'
+
+group :internal do
+  cookbook 'bitdefender', path: 'cookbooks/bitdefender'
+  cookbook 'homepage-svc-role', path: 'cookbooks/homepage-svc-role'
+  cookbook 'it-admin-svc-role', path: 'cookbooks/it-admin-svc-role'
+  cookbook 'it-admin-web-role', path: 'cookbooks/it-admin-web-role'
+  cookbook 'it-db-migration-role', path: 'cookbooks/it-db-migration-role'
+  cookbook 'it-db-role', path: 'cookbooks/it-db-role'
+  cookbook 'it-svc-role', path: 'cookbooks/it-svc-role'
+  cookbook 'it-web-role', path: 'cookbooks/it-web-role'
+  cookbook 'linux-role', path: 'cookbooks/linux-role'
+  cookbook 'monitoring-role', path: 'cookbooks/monitoring-role'
+  cookbook 'pcas-admin-role', path: 'cookbooks/pcas-admin-role'
+  cookbook 'pcas-role', path: 'cookbooks/pcas-role'
+  cookbook 'periscope-aws-linux-role', path: 'cookbooks/periscope-aws-linux-role'
+  cookbook 'periscope-aws-windows-role', path: 'cookbooks/periscope-aws-windows-role'
+  cookbook 'postgres-linux-role', path: 'cookbooks/postgres-linux-role'
+  cookbook 'ppt-svc-role', path: 'cookbooks/ppt-svc-role'
+  cookbook 'pv-db-migration-role', path: 'cookbooks/pv-db-migration-role'
+  cookbook 'pv-db-role', path: 'cookbooks/pv-db-role'
+  cookbook 'pv-nginx-role', path: 'cookbooks/pv-nginx-role'
+  cookbook 'pv-pcas-for-admin-role', path: 'cookbooks/pv-pcas-for-admin-role'
+  cookbook 'pv-seed-svc-role', path: 'cookbooks/pv-seed-svc-role'
+  cookbook 'pv-submarine-role', path: 'cookbooks/pv-submarine-role'
+  cookbook 'pv-web-role', path: 'cookbooks/pv-web-role'
+  cookbook 'sb-db-migration-role', path: 'cookbooks/sb-db-migration-role'
+  cookbook 'sb-db-role', path: 'cookbooks/sb-db-role'
+  cookbook 'sb-svc-role', path: 'cookbooks/sb-svc-role'
+  cookbook 'sb-web-role', path: 'cookbooks/sb-web-role'
+  cookbook 'submarine-home-role', path: 'cookbooks/submarine-home-role'
+  cookbook 'tableau-gateway-svc-role', path: 'cookbooks/tableau-gateway-svc-role'
+  cookbook 'token-svc-role', path: 'cookbooks/token-svc-role'
+end
+
+group :performance do
+  cookbook 'ppt-svc', git: 'git@git.mckinsey-solutions.com:performance/PowerpointService.git', rel: 'cookbook/ppt-svc'
+  cookbook 'pv-web', git: 'git@git.mckinsey-solutions.com:performance/ppv.git', rel: 'cookbook/pv-web'
+  cookbook 'pv_seed_svc', git: 'git@git.mckinsey-solutions.com:performance/landingpage-seed.git', rel: 'cookbook/pv_seed_svc'
+  cookbook 'pv_seed_assets', git: 'git@git.mckinsey-solutions.com:performance/landingpage-seed-assets.git', rel: 'cookbook/pv_seed_assets'
+  cookbook 'pcas-admin-assets-cookbook', git: 'git@git.mckinsey-solutions.com:pcas/admin-assets.git', rel: 'cookbook/pcas-admin-assets-cookbook'
+  cookbook 'pv-web-assets', git: 'git@git.mckinsey-solutions.com:performance/ppv.git', rel: 'cookbook/pv-web-assets'
+end
+
+group :storyboard do
+  cookbook 'sb-svc', git: 'git@git.mckinsey-solutions.com:storyboard/sb-svc.git', rel: 'cookbook/sb-svc'
+  cookbook 'sb-web', git: 'git@git.mckinsey-solutions.com:storyboard/sb-web.git', rel: 'cookbook/sb-web'
+  cookbook 'sb-web-assets', git: 'git@git.mckinsey-solutions.com:storyboard/sb-web.git', rel: 'cookbook/sb-web-assets'
+end
+
+group :impact do
+  cookbook 'itracker-admin-assets-cookbook', git: 'git@git.mckinsey-solutions.com:impact/itracker-admin-assets.git', rel: 'cookbook/itracker-admin-assets-cookbook'
+  cookbook 'itracker-admin-service-cookbook', git: 'git@git.mckinsey-solutions.com:impact/itracker-admin-service.git', rel: 'cookbook/itracker-admin-service-cookbook'
+  cookbook 'impact-tracker-server-cookbook', git: 'git@git.mckinsey-solutions.com:impact/impact-tracker-server.git', rel: 'cookbook/impact-tracker-server-cookbook'
+  cookbook 'impact-tracker-web-assets-cookbook', git: 'git@git.mckinsey-solutions.com:impact/impact-tracker-web.git', rel: 'cookbook/impact-tracker-web-assets-cookbook'
+end
+
+group :shared do
+  cookbook 'homepage-app', git: 'git@git.mckinsey-solutions.com:shared/homepage-app.git', rel: 'cookbook/homepage-app'
+  cookbook 'homepage-web', git: 'git@git.mckinsey-solutions.com:shared/homepage-web.git', rel: 'cookbook/homepage-web'
+  cookbook 'shared_assets', git: 'git@git.mckinsey-solutions.com:shared/shared_assets.git', rel: 'cookbook/shared_assets'
+  cookbook 'submarine-home-assets', git: 'git@git.mckinsey-solutions.com:shared/submarine-home-assets.git', rel: 'cookbook/submarine-home-assets'
+end
+
+group :pcas do
+  cookbook 'login-web-assets-cookbook', git: 'git@git.mckinsey-solutions.com:pcas/login-assets.git', rel: 'cookbook/login-web-assets-cookbook'
+  cookbook 'login-web-cookbook', git: 'git@git.mckinsey-solutions.com:pcas/login.git', rel: 'cookbook/login-web-cookbook'
+  cookbook 'pcas-admin-assets-cookbook', git: 'git@git.mckinsey-solutions.com:pcas/admin-assets.git', rel: 'cookbook/pcas-admin-assets-cookbook'
+  cookbook 'pcas-admin-cookbook', git: 'git@git.mckinsey-solutions.com:pcas/admin.git', rel: 'cookbook/pcas-admin-cookbook'
+  cookbook 'token-service-cookbook', git: 'git@git.mckinsey-solutions.com:pcas/token-service.git', rel: 'cookbook/token-service-cookbook'
+  cookbook 'tableau-gateway-cookbook', git: 'git@git.mckinsey-solutions.com:pcas/tableau-gateway.git', rel: 'cookbook/tableau-gateway-cookbook'
+end
+
+group :external do
+  cookbook 'build-essential', git: 'git@git.mckinsey-solutions.com:infra/cookbook-build-essential.git'
+  cookbook 'chef-handler', git: 'git@git.mckinsey-solutions.com:infra/cookbook-chef-handler.git'
+  cookbook 'chef-splunk', git: 'git@git.mckinsey-solutions.com:infra/cookbook-chef-splunk.git'
+  cookbook 'chef-sugar', git: 'git@git.mckinsey-solutions.com:infra/cookbook-chef-sugar.git'
+  cookbook 'chef-vault', git: 'git@git.mckinsey-solutions.com:infra/cookbook-chef-vault.git'
+  cookbook 'database', git: 'git@git.mckinsey-solutions.com:infra/cookbook-database.git'
+  cookbook 'db-helper', git: 'git@git.mckinsey-solutions.com:shared/db-helper.git', rel: 'cookbook/db-helper'
+  cookbook 'iis', git: 'git@git.mckinsey-solutions.com:infra/cookbook-iis.git'
+  cookbook 'mash-bitdefender', git: 'git@git.mckinsey-solutions.com:mash-shared/cookbook-mash-bitdefender.git'
+  cookbook 'mash-splunk', git: 'git@git.mckinsey-solutions.com:mash-shared/cookbook-mash-splunk.git'
+  cookbook 'nuget', git: 'git@git.mckinsey-solutions.com:infra/cookbook-nuget.git'
+  cookbook 'openssl', git: 'git@git.mckinsey-solutions.com:infra/cookbook-openssl.git'
+  cookbook 'periscope-cookbook-defaults', git: 'git@git.mckinsey-solutions.com:infra/periscope-cookbook-defaults.git'
+  cookbook 'periscope_infra', git: 'git@git.mckinsey-solutions.com:infra/periscope-infra.git'
+  cookbook 'periscope-linux', git: 'git@git.mckinsey-solutions.com:infra/periscope-linux.git'
+  cookbook 'periscope-nginx', git: 'git@git.mckinsey-solutions.com:infra/periscope-nginx.git'
+  cookbook 'periscope-windows', git: 'git@git.mckinsey-solutions.com:infra/periscope-windows.git'
+  cookbook 'periscope-monitoring-cookbook', git: 'git@git.mckinsey-solutions.com:infra/periscope-monitoring-cookbook.git'
+  cookbook 'postgresql', git: 'git@git.mckinsey-solutions.com:infra/cookbook-postgresql.git'
+  cookbook 'route53', git: 'git@git.mckinsey-solutions.com:infra/cookbook-route53.git'
+  cookbook 'test-kitchen-helper', git: 'git@git.mckinsey-solutions.com:infra/cookbook-test-kitchen-helper.git'
+  cookbook 'xml', git: 'git@git.mckinsey-solutions.com:infra/cookbook-xml.git'
+  cookbook 'cookbook-rds-postgres', git: 'git@git.mckinsey-solutions.com:infra/cookbook-rds-postgres.git', branch: 'master'
+  cookbook 'yum', git: 'git@git.mckinsey-solutions.com:infra/cookbook-yum.git'
+end

@@ -1,0 +1,7 @@
+source 'https://supermarket.chef.io'
+
+metadata
+
+cookbook 'common', path: '../common'
+cookbook 'periscope-chocolatey', git: 'git@git.mckinsey-solutions.com:infra/periscope-chocolatey.git'
+cookbook 'emr_cluster', git: 'git@git.mckinsey-solutions.com:infra/cookbook-emr_cluster.git'

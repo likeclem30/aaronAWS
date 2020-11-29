@@ -1,0 +1,27 @@
+events {
+    worker_connections  1024;
+}
+
+http {
+    proxy_send_timeout 120;
+    proxy_read_timeout 300;
+    proxy_buffering    off;
+    keepalive_timeout  75;
+    tcp_nodelay        on;
+    server_tokens off;
+    add_header X-Frame-Options SAMEORIGIN;
+    include mime.types;
+
+     log_format upstream_time '$remote_addr - $remote_user [$time_local] '
+                             '"$request" $status $body_bytes_sent '
+                             '"$http_referer" "$http_user_agent" '
+                             'requestTime=$request_time  upstreamHeaderTime="$upstream_header_time" upstreamResponseTime="$upstream_response_time"';
+
+    server {
+        listen 80;
+        access_log /var/log/nginx/access.log upstream_time;
+        server_name ~^(?<domain>.+)$;
+
+     include "/etc/nginx/conf.d/*.conf";
+    }
+}

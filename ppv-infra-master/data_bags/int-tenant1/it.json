@@ -1,0 +1,13 @@
+{
+  "id": "it",
+  "app_id": "3",
+  "database_name": "itracker",
+  "database_server": "ppv-int-tenant1-data01-srv.periscope-solutions.local",
+  "database_port": "5432",
+  "database_username": "itracker",
+  "database_schema": "itracker",
+  "token_service_url": "http://int-sbsvc.periscope-solutions.local:5003/extend/action-workflow/",
+  "login_page_url": "/intapp/auth/login?returnUrl=/intapp/action-workflow/",
+  "homepage_service_url": "https://dev.periscope.mckinsey-solutions.com/intapp/homepage",
+  "impact_tracker_server_url": "http://ppv-int-tenant1-svc01-srv.periscope-solutions.local:5007"
+}

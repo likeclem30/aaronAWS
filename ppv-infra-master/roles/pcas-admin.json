@@ -1,0 +1,55 @@
+{
+  "name": "pcas-admin",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath" : "/opt/periscope/login-web/logs/Auth-Login.json.log",
+            "sourcetype" : "login-web"
+          },
+          {
+            "filepath" : "/opt/periscope/login-web/logs/Auth-Login-health.json.log",
+            "sourcetype" : "login-web-health-check"
+          },
+          {
+            "filepath" : "/opt/periscope/pcas-admin/logs",
+            "sourcetype" : "pcas-admin"
+          },
+          {
+            "filepath" : "/var/log/nginx",
+            "sourcetype" : "price-admin-nginx"
+          },
+           {
+            "filepath" : "/var/log/audit/audit.log",
+            "sourcetype" : "auditlog"
+          },
+           {
+            "filepath" : "/var/log/messages",
+            "sourcetype" : "syslogs"
+          }
+        ]
+      }
+    },
+  "security": {
+    "iptables_ports": ["80", "22", "5006"]
+  }
+  },
+
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[nginx::nginx_for_pcasadmin]",
+    "recipe[pcas-admin::default]",
+    "recipe[mash-splunk]",
+    "recipe[security::linux_hardening]"
+  ],
+  "env_run_lists": {
+
+  }
+}

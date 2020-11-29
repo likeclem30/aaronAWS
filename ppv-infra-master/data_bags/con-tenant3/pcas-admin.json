@@ -1,0 +1,16 @@
+{
+  "id": "pcas-admin",
+  "performance_path": "",
+  "price_path": "/khl/admin/priceetl",
+  "logout_path": "/khl/admin/auth/logout",
+  "heartbeat_path": "/khl/admin/auth/heartbeat",
+  "status_url": "https://ppv-con-tenant3.sso.periscope-solutions.com/api/v2/jobs",
+  "upload_url": "https://ppv-con-tenant3.sso.periscope-solutions.com/api/v2/jobs/users-imports",
+  "tokenservice_url": "http://ppv-con-tenant3-svc.periscope-solutions.local:5003",
+  "login_url": "/khl/admin/auth/login?returnUrl=/khl/admin/users",
+  "s3_bucket_location": "",
+  "client_id": "bQDweOn01bTN06dAiDgUgaM4W55MWoIs",
+  "create_user_endpoint": "https://ppv-con-tenant3.sso.periscope-solutions.com/api/v2/users",
+  "password_reset_endpoint": "https://ppv-con-tenant3.sso.periscope-solutions.com/dbconnections/change_password",
+  "connection_name": "ppv-con-tenant3-database"
+}

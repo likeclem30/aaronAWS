@@ -1,0 +1,15 @@
+{
+  "name": "postgres-linux",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[postgres-linux-role]"
+  ],
+  "env_run_lists": { 
+  }
+}

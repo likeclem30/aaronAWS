@@ -1,0 +1,12 @@
+{
+  "id":"pvseedsvc",
+  "database_server":"ppv-stg-tenant1-data01-srv.periscope-solutions.local",
+  "database_name":"performance_analytics",
+  "database_schema":"pe",
+  "token_service_url":"http://ppv-stg-tenant1-svc.periscope-solutions.local:5003",
+  "logout_path":"/admin/tenant1/auth/logout",
+  "heartbeat_path":"/admin/tenant1/auth/heartbeat",
+  "nginx_base_route": "http://localhost:5004/",
+  "login_url": "/admin/tenant1/auth/login?returnUrl=/admin/tenant1/seed",
+  "configureusers_path": "/admin/tenant1/users"
+}

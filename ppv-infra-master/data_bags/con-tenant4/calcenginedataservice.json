@@ -1,0 +1,8 @@
+{
+	"id": "calcenginedataservice",
+	"app_port": "6011",
+	"log_format": "text",
+	"factdata_endpoint": "localhost:6002",
+	"competitor_endpoint": "localhost:6009",
+	"log_level" : "error"
+}

@@ -1,0 +1,12 @@
+source ENV['GEM_SERVER'] || 'https://rubygems.org'
+
+group :test, :development do
+  gem 'chef', '12.5.1', require: false
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'rubocop'
+  gem 'foodcritic'
+  gem 'rake', require: false
+end
+gem 'test-kitchen'
+gem 'kitchen-vagrant'

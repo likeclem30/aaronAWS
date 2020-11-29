@@ -1,0 +1,20 @@
+{
+  "name": "pcas-admin",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {
+    "security": {
+      "iptables_ports": [
+        "80",
+        "22",
+        "5006"
+      ]
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[pcas-admin-role]"
+  ],
+  "env_run_lists": {}
+}

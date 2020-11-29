@@ -1,0 +1,8 @@
+source 'https://supermarket.chef.io'
+
+metadata
+
+cookbook 'iis', git: 'git@git.mckinsey-solutions.com:infra/cookbook-iis.git'
+cookbook 'windows', git: 'git@git.mckinsey-solutions.com:infra/cookbook-windows.git'
+cookbook 'nuget', git: 'git@git.mckinsey-solutions.com:infra/cookbook-nuget.git'
+cookbook 'chef-handler', git: 'git@git.mckinsey-solutions.com:infra/cookbook-chef-handler.git'

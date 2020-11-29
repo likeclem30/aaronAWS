@@ -1,0 +1,24 @@
+{
+  "name": "pcas",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "security": {
+    "iptables_ports": ["80", "22", "5002"]
+  }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[nginx::nginx_for_auth]",
+    "recipe[pcas::default]",
+    "recipe[security::linux_hardening]"
+
+  ],
+  "env_run_lists": {
+
+  }
+}

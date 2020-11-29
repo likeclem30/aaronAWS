@@ -1,0 +1,12 @@
+{
+  "name": "sb-db-migration",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+    
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[sb-db-migration-role]"
+  ]
+}

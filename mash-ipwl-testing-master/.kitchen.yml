@@ -1,0 +1,119 @@
+---
+driver:
+  name: ec2
+  region: us-east-1
+  aws_ssh_key_id: ndmSharedNpnNAT
+  instance_type: t2.small
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ec2-ubuntu-1404
+    driver:
+      image_id: ami-fce3c696
+      subnet_id: subnet-48d47410
+      associate_public_ip: true
+      availability_zone: a
+      iam_profile_name: nat-vpc-test-NatInstanceProfile-1Q95UP8B46SMQ
+    transport:
+      ssh_key: <%= ENV['HOME'] %>/.ssh/ndmSharedNpnNAT.pem
+      username: ubuntu
+
+suites:
+  - name: s3test
+    run_list:
+    - recipe[mash-ipwl]
+    attributes: { "mash-ipwl": {
+        "s3_region" :
+          "us-east-1"
+        ,
+        "sites_config" :
+          "s3"
+        ,
+        "ips_config" :
+          "s3"
+        ,
+        "s3_sites_config":
+          "s3://aus1c-ndm-ss02/ipwl11/sites"
+        ,
+        "ip_whitelist_config": 
+          "s3://aus1c-ndm-ss02/ipwl11/whitelists"
+        ,
+        "trusted_proxies_config":
+          "s3://aus1c-ndm-ss02/ipwl11/trusted_proxies"
+    }
+}
+  - name: atttest
+    run_list:
+    - recipe[mash-ipwl]
+    attributes: { "mash-ipwl": {
+                  "sites" : { "site1" : { "domain" : "akamai.example.com",
+          							"type" : "akamai",
+          							"locations" : [
+                        			  { "name" : "/",
+                        			    "protocol" : "both",
+                       				     "remote_protocol" : "keep",
+                     				       "remote_url" : "None",
+                     				        "pass_host" : true,
+                    				        "redirection" : "URL",
+                    				        "redirection_code" : "302",
+                    				        "redirection_url" : "http://google.com",
+                    				        "reject_url" : "http://www.mckinseysolutions.com/"
+                    			      },
+                       			      { "name" : "/app1",
+                          				  "protocol" : "both",
+                        				  "redirection" : "None",
+                       					  "remote_protocol" : "keep",
+                      					  "remote_url" : "yahoo.com",
+                      					  "pass_host" : true,
+                      				      "reject_url" : "http://www.mckinseysolutions.com/"
+                          			  }
+                         				],
+								 },
+					"site2" : { "domain" : "nonakamai.example.com",
+          							"type" : "nonakamai",
+          							"locations" : [
+                        			  { "name" : "/",
+                        			    "protocol" : "both",
+                       				     "remote_protocol" : "keep",
+                     				        "remote_url" : "None",
+                     				        "pass_host" : false,
+                    				        "redirection" : "URL",
+                    				        "redirection_code" : "302",
+                    				        "redirection_url" : "http://google.com",
+                    				        "reject_url" : "http://www.mckinseysolutions.com/"
+                    			      },
+                       			      { "name" : "/app1",
+                          				  "protocol" : "both",
+                        				  "redirection" : "None",
+                       					  "remote_protocol" : "keep",
+                      					  "remote_url" : "yahoo.com",
+                      					  "pass_host" : false,
+                      				      "reject_url" : "http://www.mckinseysolutions.com/"
+                          			  }
+                         				],
+					}
+				},
+                   "ip_whitelist" : {
+                                        "akamai.example.com" : {
+                                                                  "/" : { "ips" : ["80.169.207.10"]},
+                                                                  "/app" : { "ips" : ["80.34.208.178"]}
+                                                                 },
+                                        "nonakamai.example.com" : {
+                                                                   "/" : { "ips" : ["80.169.207.10"]},
+                                                                    "/app" : { "ips" : ["80.34.208.178"]}
+                                                                 }
+				    },
+                   "trusted_proxies" : {
+                                        "akamai.example.com" : {
+                                                                  "/" : { "ips" : ["80.169.207.10"]},
+                                                                  "/app" : { "ips" : ["80.34.208.178"]}
+                                                                 },
+                                        "nonakamai.example.com" : {
+                                                                   "/" : { "ips" : ["80.169.207.10"]},
+                                                                    "/app" : { "ips" : ["80.34.208.178"]}
+                                                                 }
+				        }
+    }
+}

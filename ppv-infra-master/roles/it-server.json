@@ -1,0 +1,42 @@
+{
+  "name": "it-server",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath": "/opt/periscope/impact-tracker-server/logs/ImpactTracker.json.log",
+            "sourcetype": "impact-tracker"
+          },
+                    {
+            "filepath": "/opt/periscope/impact-tracker-server/logs/ImpactTracker.Healthcheck.json.log",
+            "sourcetype": "impact-tracker-health-check"
+          },
+          {
+            "filepath": "/var/log/audit/audit.log",
+            "sourcetype": "auditlog",
+            "index": "audit"
+          },
+          {
+            "filepath": "/var/log/messages",
+            "sourcetype": "syslogs"
+          }
+        ]
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [ "role[base]",
+                "recipe[mash-splunk]",
+                "recipe[security::linux_hardening]",
+                "recipe[it::server]",
+                "recipe[dns::private_dns_entry]"],
+
+  "env_run_lists": {
+  }
+}

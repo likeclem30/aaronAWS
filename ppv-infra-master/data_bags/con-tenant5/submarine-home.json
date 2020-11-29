@@ -1,0 +1,7 @@
+{
+  "id": "submarine-home",
+  "homepage_service_url": "https://app.periscope-solutions.com/solvay/admin/homepage",
+  "heartbeat_path": "/solvay/admin/auth/heartbeat",
+  "login_path": "/solvay/admin/auth/login",
+  "logout_path": "/solvay/admin/auth/logout"
+}

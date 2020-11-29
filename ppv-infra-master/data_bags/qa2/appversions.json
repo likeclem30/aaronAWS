@@ -1,0 +1,26 @@
+{
+  "id": "appversions",
+
+  "calculation_engine_version": "1.0.95-1",
+  "calcenginedataservice_version": "1.0.61-1",
+  "competitorservice_version": "1.0.101-1",
+  "configurationservice_version": "1.0.86-1",
+  "dimensiondataservice_version": "1.0.50-1",
+  "metadataservice_version": "1.0.97-1",
+  "priceservice_version": "1.0.82-1",
+  "queryservice_version": "1.0.130-1",
+  "price_frontend_version": "1.0.144-1",
+  "pcas_comp_version": "1.2.93-1",
+  "pcas_assets_version": "1.2.40-1",
+  "pcas_admin_comp_version": "1.2.18-1",
+  "pcas_admin_assets_version": "1.2.8-1",
+  "token_svc_comp_version": "1.0.76-1",
+  "configurationservice_migrations_version": "1.0.86-1",
+  "metadataservice_migrations_version": "1.0.97-1",
+  "queryservice_migrations_version": "1.0.130-1",
+  "price_etl_migrations_version": "1.0.58-1",
+  "etl_version": "1.0.58-1",
+  "etl_frontend_version": "1.0.23-1",
+  "price_monitoring_version": "1.0.5-1",
+  "datamodel_etl_assets_version": "1.0.5-1"
+}

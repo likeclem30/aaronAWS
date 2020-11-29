@@ -1,0 +1,6 @@
+{
+	"id": "priceweb",
+	"login_route": "/demapp2/auth/login",
+	"logout_route": "/demapp2/auth/logout",
+	"base_route": "/demapp2"
+}

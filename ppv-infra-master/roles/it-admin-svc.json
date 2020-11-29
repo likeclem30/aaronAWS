@@ -1,0 +1,42 @@
+{
+  "name": "it-admin-svc",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath": "/opt/periscope/itracker-admin-service/logs/ITracker-Admin-Service.json.log",
+            "sourcetype": "itracker-admin-service"
+          },
+          {
+            "filepath": "/opt/periscope/itracker-admin-service/logs/ITracker-Admin-Service.Healthcheck.json.log",
+            "sourcetype": "itracker-admin-service-health-check"
+          },
+          {
+            "filepath": "/var/log/audit/audit.log",
+            "sourcetype": "auditlog",
+            "index": "audit"
+          },
+          {
+            "filepath": "/var/log/messages",
+            "sourcetype": "syslogs"
+          }
+        ]
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [ "role[base]",
+                "recipe[mash-splunk]",
+                "recipe[security::linux_hardening]",
+                "recipe[it-admin::server]",
+                "recipe[nginx::nginx_for_it_admin_svc]"],
+  "env_run_lists": {
+
+  }
+}
+

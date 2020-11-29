@@ -1,0 +1,51 @@
+"use strict";
+
+var base =  "https://<%= @base %><%= @app_context %>/";
+
+window.appConfig = {
+  services: [
+    {
+      name: "Price",
+      url: base + "price/api/healthcheck"
+    },
+    {
+      name: "Query Service",
+      url: base + "price/api/healthcheck/query-service"
+    },
+    {
+      name: "Metadata Service",
+      url: base + "price/api/healthcheck/metadata-service"
+    },
+    {
+      name: "Configuration Service",
+      url: base + "price/api/healthcheck/configuration-service"
+    },
+    {
+      name: "Dimensiondata Service",
+      url: base + "price/api/healthcheck/dimension-data-service"
+    },
+    {
+      name: "Calculation Engine Data Service",
+      url: base + "price/api/healthcheck/calculation-engine-data-service"
+    },{
+      name: "Competitor Service",
+      url: base + "price/api/healthcheck/competitor-service"
+    },
+    {
+      name: "Database",
+      url: base + "price/api/healthcheck/database"
+    },
+    {
+      name: "Login",
+      url: base + "auth/healthcheck"
+    },
+    {
+      name: "Token Service",
+      url: base + "auth/healthcheck/token-service"
+    },
+    {
+      name: "Job Server",
+      url: base + "price/api/healthcheck/job-server"
+    }
+  ]
+};

@@ -1,0 +1,6 @@
+{
+	"id": "metadataservice",
+	"app_port": "6005",
+	"log_format": "text",
+	"log_level" : "error"
+}

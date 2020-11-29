@@ -1,0 +1,7 @@
+{
+	"id": "configurationservice",
+	"app_port": "6007",
+	"log_format": "INFO",
+	"metadata_endpoint": "localhost:6005",
+	"log_level" : "info"
+}

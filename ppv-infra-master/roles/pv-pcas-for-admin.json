@@ -1,0 +1,50 @@
+{
+  "name": "pv-pcas-for-admin",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "nginx": {
+      "url_context": "admin_context"
+    },
+    "pcas": {
+      "app_config": "admin_config"
+    },
+    "monitoring": {
+      "url_context": "admin_context",
+      "services": [{
+        "name": "LandingPage Svc",
+        "url": "seed/healthcheck"
+      },{
+      "name": "User Management",
+      "url": "users/healthcheck"
+      },{
+      "name": "Login",
+      "url": "auth/healthcheck"
+      },{
+      "name": "Login -> Token Svc",
+      "url": "auth/healthcheck/token-service"
+      },{
+      "name": "Itracker admin Svc",
+      "url": "action-workflow/api/healthcheck"
+      },{
+      "name": "Itracker admin Svc -> DB",
+      "url": "action-workflow/api/healthcheck/db"
+      }]
+    },
+    "pcas": {
+      "app_config": "admin_config"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[security::linux_hardening]",
+    "recipe[nginx::nginx_for_auth]",
+    "recipe[pcas::default]"
+  ],
+  "env_run_lists": {
+  }
+
+}

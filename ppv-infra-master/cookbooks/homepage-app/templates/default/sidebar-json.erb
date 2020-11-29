@@ -1,0 +1,12 @@
+{
+  "mainMenuItems": [
+	<% @main_menu_items.each_with_index do |menu_item, i| %>
+	    <%= (i == @main_menu_items.length - 1 ) ? menu_item : "#{menu_item}," %>
+	<% end %>
+  ],
+  "logoutItem": {
+    "title": "<%= @logout_title %>",
+    "url": "<%= @logout_url %>"
+  }
+}
+

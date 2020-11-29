@@ -1,0 +1,26 @@
+{
+  "name": "pcas-for-admin",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {
+    "nginx": {
+      "url_context": "admin_context"
+    },
+    "homepage_app": {
+      "main_menu_items" :  [
+        {"id":"perfadmin","url":"/intadmin3/#/perf/home","manifestUrl":"/intadmin3/perf/rev-manifest.json","title":"Data Visualisation"},
+        {"id":"itrackeradmin","url":"/intadmin3/#/action-workflow/home","manifestUrl":"/intadmin3/action-workflow/rev-manifest.json","title":"Action workflow"}
+      ],
+      "logout_item": {
+        "title": "Log out",
+        "url": "/intadmin3/auth/logout"
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[pcas-role]"
+  ],
+  "env_run_lists": {}
+}

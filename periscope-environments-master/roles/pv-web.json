@@ -1,0 +1,15 @@
+{
+  "name": "pv-web",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+    "nginx": {
+      "base_route": "http://localhost:5000/home.html"
+
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[pv-web-role]"
+  ]
+}

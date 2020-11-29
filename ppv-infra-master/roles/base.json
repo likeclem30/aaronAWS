@@ -1,0 +1,25 @@
+{
+  "name": "base",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath" : "/var/log/messages",
+            "sourcetype" : "syslogs"
+          }
+        ]
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": ["recipe[infra::base]"],
+  "env_run_lists": {
+
+  }
+}

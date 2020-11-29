@@ -1,0 +1,6 @@
+{
+  "id": "tokensvc",
+  "sliding_exp": "3600",
+  "cz": "ppv",
+  "log_directory": "logs"
+}

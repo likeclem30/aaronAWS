@@ -1,0 +1,7 @@
+knife bootstrap $master_ip \
+  -N 'price_spark_master' \
+  -r 'role[master_prov]' \
+  -E <%= @environment %> \
+  -x hadoop \
+  -i ~/.ssh/<%= @key_name %>.pem \
+  --sudo

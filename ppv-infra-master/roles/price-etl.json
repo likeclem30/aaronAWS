@@ -1,0 +1,30 @@
+{
+  "name": "price-etl",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+  "nginx" : {
+    "base_route": "http://localhost:6001/index.html"
+   },
+   "security": {
+    "iptables_ports": ["80", "22", "5007"]
+  },
+   "splunk": {
+      "inputs_conf": {
+        "files": [
+          {
+            "filepath" : "/opt/periscope/priceetl/logs",
+            "sourcetype" : "price-etl"
+          }
+        ]
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "role[base]",
+      "recipe[price-etl]",
+      "recipe[nginx::nginx_for_price_etl]",
+      "recipe[security::linux_hardening]"
+  ]
+}

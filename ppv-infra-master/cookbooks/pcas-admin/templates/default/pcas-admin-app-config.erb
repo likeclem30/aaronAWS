@@ -1,0 +1,14 @@
+{
+        "appPort": "<%=@app_port%>",
+        "logDirectory": "<%=@log_directory%>",
+        "clientID": "<%= @client_id %>",
+        "createUserEndpoint": "<%= @create_user_endpoint %>",
+        "passwordResetEndpoint": "<%= @password_reset_endpoint %>",
+        "connectionName": "<%= @connection_name %>",
+        "tokenServiceURL": "<%=@tokenservice_url%>",
+        "csrfKey": "<%=@csrf_key%>",
+        "loginURL": "<%=@login_url%>",
+        "logoutUrl": "<%=@logout_url%>",
+        "auth0Token": "<%=@auth0_token%>",
+        "awsCommand": "/usr/local/bin/aws s3 cp %s s3://<%=@s3_usersync_bucket%> --sse"
+}

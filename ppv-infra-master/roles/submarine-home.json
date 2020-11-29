@@ -1,0 +1,21 @@
+{
+  "name": "submarine-home",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[submarine-home::web]",
+    "recipe[nginx::nginx_for_submarine_home_assets]",
+    "role[shared-assets-for-admin]"
+  ],
+
+  "env_run_lists": {
+  }
+}

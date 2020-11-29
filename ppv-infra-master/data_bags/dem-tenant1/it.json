@@ -1,0 +1,13 @@
+{
+  "id": "it",
+  "app_id": "3",
+  "database_name": "itracker",
+  "database_server": "ppv-dem-tenant1-data01-srv.periscope-solutions.local",
+  "database_port": "5432",
+  "database_username": "itracker",
+  "database_schema": "itracker",
+  "token_service_url": "http://localhost:5003/extend/action-workflow/",
+  "login_page_url": "/demapp/auth/login?returnUrl=/demapp/action-workflow/",
+  "homepage_service_url": "https://dev.periscope.mckinsey-solutions.com/demapp/homepage",
+  "impact_tracker_server_url": "http://demo-sbsvc.periscope-solutions.local:5007"
+}

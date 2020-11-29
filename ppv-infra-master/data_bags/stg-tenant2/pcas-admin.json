@@ -1,0 +1,16 @@
+{
+  "id": "pcas-admin",
+  "performance_path": "",
+  "price_path": "/admin/tenant2/priceetl",
+  "logout_path": "/admin/tenant2/auth/logout",
+  "heartbeat_path": "/admin/tenant2/auth/heartbeat",
+  "status_url": "https://ppv-stg-tenant2.sso-npn.periscope-solutions.com/api/v2/jobs",
+  "upload_url": "https://ppv-stg-tenant2.sso-npn.periscope-solutions.com/api/v2/jobs/users-imports",
+  "tokenservice_url": "http://ppv-stg-tenant2-svc.periscope-solutions.local:5003",
+  "login_url": "/admin/tenant2/auth/login?returnUrl=/admin/tenant2/users",
+  "s3_bucket_location": "",
+  "client_id": "3iaEj0yuyvuF4Ajz9eGIrRkCxb1yRirY",
+  "create_user_endpoint": "https://ppv-stg-tenant2.sso-npn.periscope-solutions.com/api/v2/users",
+  "password_reset_endpoint": "https://ppv-stg-tenant2.sso-npn.periscope-solutions.com/dbconnections/change_password",
+  "connection_name": "ppv-stg-tenant2-database"
+}

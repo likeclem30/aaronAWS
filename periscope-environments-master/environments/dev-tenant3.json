@@ -1,0 +1,37 @@
+{
+  "name": "dev-tenant3",
+  "description": "",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {},
+  "override_attributes": {
+    "periscope": {
+      "tenant_id": "tenant3",
+      "environment_code": "dev",
+      "databag_name": "dev-tenant3",
+      "application_context": "/app3",
+      "admin_context": "/admin3",
+      "tenant_modules": ["pv", "sb", "itracker"],
+      "authorized_email_domains": "thoughtworks.com,mckinsey.com,external.mckinsey.com",
+      "env": {
+        "chef_server_url": "https://dev-chefserver.periscope.mckinsey-solutions.com/organizations/ppv-dev-tenant3/"
+      },
+      "machine": {
+        "groups": {
+          "web": { "number_of_machines": 1 },
+          "svc": { "number_of_machines": 1 }
+        }
+      }
+    },
+    "pcas-admin": {
+      "connection_name": "ppv-dev-tenant3-database"
+    },
+    "pv": {
+      "db": {
+        "migration": {
+          "host": "ppv-dev-tenant3-data.periscope-solutions.local"
+        }
+      }
+    }
+  }
+}

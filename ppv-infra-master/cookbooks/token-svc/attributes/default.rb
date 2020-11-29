@@ -1,0 +1,6 @@
+default['token-svc']['databag_item'] = 'tokensvc'
+default['token-svc']['comp_name'] = 'token-service'
+default['token-svc']['app_port'] = '5003'
+default['token-svc']['appversions_databag_name'] = 'appversions'
+default['token-svc']['app_secrets'] = 'app-secrets'
+default['token-svc']['databag_name'] = 'dev'

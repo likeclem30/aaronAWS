@@ -1,0 +1,30 @@
+{
+  "id": "homepage-app",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url": "http://ppv-dev-tenant1-svc01-srv.periscope-solutions.local:5003",
+
+  "main_menu_items": [
+  {
+  	"id": "1",
+  	"url": "/app/perf/home.html",
+  	"title": "Home"
+  },{
+  	"id": "2",
+  	"url": "/app/perf",
+  	"title": "Analytics"
+  },{
+	"id": "3",
+  	"url": "/app/action-workflow",
+  	"title": "Action workflow"
+  },{
+    "id": "4",
+    "url": "/app/sb",
+    "title": "Storyboard"
+  }],
+  
+  "logout_item": {
+    "url": "/app/auth/logout",
+    "title": "Log out"
+  }
+}

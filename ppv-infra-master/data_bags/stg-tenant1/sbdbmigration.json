@@ -1,0 +1,8 @@
+{
+    "id":"sbdbmigration",
+    "host":"localhost",
+    "db_name":"storyboard",
+    "schema_name":"sb",
+    "sslmode":"disable",
+    "script_path":"/opt/periscope/sb-svc/public"
+}

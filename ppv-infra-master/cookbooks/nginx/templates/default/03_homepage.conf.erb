@@ -1,0 +1,10 @@
+location ^~ <%= @url_context %>/homepage/ {
+    proxy_pass http://localhost:9999/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+
+location ^~ <%= @url_context %>/homepage {
+    rewrite ^<%= @url_context %>/homepage(.*)$ $http_x_forwarded_proto://$domain/<%= @url_context %>/homepage/$1 permanent;
+}

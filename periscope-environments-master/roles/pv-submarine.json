@@ -1,0 +1,17 @@
+{
+  "name": "pv-submarine",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+      "nginx": {
+      "url_context": "admin_context"
+    },
+    "homepage-app": {
+      "databag_item": "homepage-app-for-admin"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[pv-submarine-role]"
+  ]
+}

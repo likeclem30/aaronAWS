@@ -1,0 +1,24 @@
+"use strict";
+
+var base =  "https://<%= @base %><%= @app_context %>/";
+
+window.appConfig = {
+  services: [
+    {
+      name: "Price ETL",
+      url: base + "priceetl/api/healthcheck"
+    },
+    { 
+      name : "User Management",
+      url: base + "/users/healthcheck"
+    },
+    {
+      name: "Login",
+      url: base + "auth/healthcheck"
+    },
+    {
+      name: "Token Service",
+      url: base + "auth/healthcheck/token-service"
+    }
+  ]
+};

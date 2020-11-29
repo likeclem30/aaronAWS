@@ -1,0 +1,17 @@
+{
+  "name": "pv-monitoring",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+  "nginx" : {
+    "base_route": "http://localhost:6001/index.html"
+   }
+  },
+  "chef_type": "role",
+  "run_list": [
+      "role[base]",
+      "recipe[security::linux_hardening]",
+      "recipe[pv-monitoring::monitoring]",
+      "recipe[nginx::nginx_for_monitoring]"
+  ]
+}

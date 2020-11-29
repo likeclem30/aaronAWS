@@ -1,0 +1,13 @@
+{
+  "id": "sbweb",
+  "app_id": "4",
+  "storyboard_service_url": "http://ppv-con-tenant1-svc.periscope-solutions.local:5001",
+  "promotion_effectiveness_url": "https://app.periscope-solutions.com/tenant1/perf",
+  "promotion_planning_url": "",
+  "use_auth0": "true",
+  "token_service_url": "http://ppv-con-tenant1-svc.periscope-solutions.local:5003",
+  "login_url": "/tenant1/auth/login?returnUrl=/tenant1/sb",
+  "logout_url": "/tenant1/auth/logout",
+  "heartbeat_url": "/tenant1/auth/heartbeat",
+  "homepage_service_url": "https://app.periscope-solutions.com/tenant1/homepage"
+}

@@ -1,0 +1,21 @@
+{  
+    "id": "pcas",
+    "static_assets_root_dir":"public",
+    "auth0_domain":"ppv-dev-tenant1.sso-npn.periscope-solutions.com",
+    "auth0_logout_url":"https://%[1]s/v2/logout?federated",
+    "tableau_logout_url":"https://dev-tableau.periscope.mckinsey-solutions.com/auth/logout",
+    "token_service_base_url":"http://demo-sbsvc.periscope-solutions.local:5003",
+    "default_redirection_route":"/",
+    "login_redirection_timeout":2000,
+    "app_domain": "dev.periscope.mckinsey-solutions.com",
+    "app_config": {
+        "login_route":"/demapp/auth/login",
+        "redirect_route": "/demapp/auth/loginsuccess",
+        "default_login_redirection_url":"https://dev.periscope.mckinsey-solutions.com/demapp/perf/home.html"
+    },
+    "admin_config": {
+        "login_route":"/demadmin/auth/login",
+        "redirect_route": "/demadmin/auth/loginsuccess",
+        "default_login_redirection_url":"https://dev.periscope.mckinsey-solutions.com/demadmin"
+    }
+}

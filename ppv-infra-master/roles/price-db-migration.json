@@ -1,0 +1,14 @@
+{
+  "name": "price-db-migration",
+  "description": "",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "run_list": [
+    "recipe[infra::goose_provision]",
+    "recipe[db::configurationservicemigration]",
+    "recipe[db::metadataservicemigration]",
+    "recipe[db::queryservicemigration]",
+    "recipe[db::priceetlmigration]"
+  ]
+}
+

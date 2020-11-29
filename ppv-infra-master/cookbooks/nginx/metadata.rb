@@ -1,0 +1,8 @@
+name 'nginx'
+maintainer 'Periscope Solutions'
+maintainer_email 'dev@periscope-solutions.com'
+description 'Installs nginx'
+version '1.3.1'
+source_url       'https://git.mckinsey-solutions.com/infra/chef-ppv'
+issues_url       'https://git.mckinsey-solutions.com/infra/chef-ppv/issues'
+recipe 'nginx', 'Installs nginx'

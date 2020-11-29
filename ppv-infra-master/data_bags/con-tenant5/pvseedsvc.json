@@ -1,0 +1,12 @@
+{
+    "database_server":"ppv-con-tenant5-data01-srv.periscope-solutions.local",
+    "database_name":"performance_analytics",
+    "database_schema":"pe",
+    "token_service_url":"http://ppv-con-tenant5-svc.periscope-solutions.local:5003",
+    "logout_path":"/solvay/admin/auth/logout",
+    "heartbeat_path":"/solvay/admin/auth/heartbeat",
+    "id":"pvseedsvc",
+    "nginx_base_route": "http://localhost:5004/",
+    "login_url": "/solvay/admin/auth/login?returnUrl=/solvay/admin/seed",
+    "configureusers_path": "/solvay/admin/users"
+}

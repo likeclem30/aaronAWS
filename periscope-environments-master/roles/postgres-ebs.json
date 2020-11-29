@@ -1,0 +1,11 @@
+{
+  "name": "postgres-ebs",
+  "description": "",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[db::ebs]"
+  ]
+}

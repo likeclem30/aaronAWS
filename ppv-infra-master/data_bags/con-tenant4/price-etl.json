@@ -1,0 +1,10 @@
+{
+	"id": "price-etl",
+	"login_url": "/khl-preview/admin/auth/login?returnUrl=/khl-preview/admin/priceetl/",
+	"fact_job_batch_size": "300",
+	"logout_path":"/khl-preview/admin/auth/logout",
+    "heartbeat_path":"/khl-preview/admin/auth/heartbeat",
+    "configureusers_path": "/khl-preview/admin/users",
+    "price_path" : "/khl-preview/admin/priceetl",
+    "server_prefix": "/khl-preview/admin/priceetl/api"
+}

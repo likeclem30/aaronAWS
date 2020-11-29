@@ -1,0 +1,12 @@
+{
+    "database_server":"ppv-dem-tenant1-data01-srv.periscope-solutions.local",
+    "database_name":"performance_analytics",
+    "database_schema":"pe",
+    "token_service_url":"http://demo-sbsvc.periscope-solutions.local:5003",
+    "logout_path":"/demadmin/auth/logout",
+    "heartbeat_path":"/demadmin/auth/heartbeat",
+    "id":"pvseedsvc",
+    "nginx_base_route": "http://localhost:5004/",
+    "login_url": "/demadmin/auth/login?returnUrl=/demadmin/seed",
+    "configureusers_path": "/demadmin/users"
+}

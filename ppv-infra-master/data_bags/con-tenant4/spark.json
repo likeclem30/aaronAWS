@@ -1,0 +1,29 @@
+{
+  "id": "spark",
+  "spark_cluster_name": [
+    "ppv-con-tenant4-cluster"
+  ],
+  "install_dir": "/opt/periscope/spark-job-server",
+  "num_cpu_cores": "1",
+  "memory_per_node": "512M",
+  "executor_instances": "9",
+  "spark_home": "/etc/spark",
+  "spark_conf_dir": "/etc/spark/conf",
+  "hadoop_conf_dir": "/etc/hadoop/conf",
+  "yarn_conf_dir": "/etc/spark/conf",
+  "log_dir": "/var/log/spark-job-server",
+  "subnet_id": ["subnet-9763cee1", "subnet-77c6012f"],
+  "worker_nodes": "2",
+  "jobserver_driver_memory": "1G",
+  "jobserver_log_path": "/var/log/spark-job-server",
+  "jobserver_install_dir": "/opt/periscope/spark-job-server",
+  "additional_master_security_group": "ppv-con-tenant4-job-srv-sg",
+  "additional_slave_security_group": "ppv-con-tenant4-job-srv-sg",
+  "dbtable": "Price_Current.FactData_Max",
+  "recommendation_job_table": "Price_Current.RecommendationJobsAssociation",
+  "partitions": 10,
+  "engine_parameter_service_url": "http://ppv-con-tenant4-svc.periscope-solutions.local:6003/GetCoefficients",
+  "calculation_engine_type": "fashion",
+  "calc_engine_data_service_url": "http://ppv-con-tenant4-svc.periscope-solutions.local:6011/getinputdata",
+  "calc_engine_output_url": "http://ppv-con-tenant4-svc.periscope-solutions.local:6011/calcoutputdata"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "homepage-app-for-admin",
+  "server_port": "9999",
+  "log_directory": "logs",
+  "token_service_url": "http://ppv-stg-tenant1-svc.periscope-solutions.local:5003",
+  "main_menu_items": [
+    {
+      "id": "perfadmin",
+      "url": "/admin/tenant1/#/perf/home",
+      "title": "Data Visualization",
+      "manifestUrl": "https://stg.periscope.mckinsey-solutions.com/admin/tenant1/perf/rev-manifest.json"
+    },
+    {
+      "id": "itrackeradmin",
+      "url": "/admin/tenant1/#/action-workflow/home",
+      "title": "Action workflow",
+      "manifestUrl": "https://stg.periscope.mckinsey-solutions.com/admin/tenant1/action-workflow/rev-manifest.json"
+    },
+    {
+      "id": "pcasadmin",
+      "url": "/admin/tenant1/users/#/admin",
+      "title": "User management"
+    }
+  ],
+  "logout_item": {
+    "url": "/admin/tenant1/auth/logout",
+    "title": "Log out"
+  }
+}

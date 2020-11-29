@@ -1,0 +1,10 @@
+{
+    "id":                          "sbweb",
+    "app_id":                      "4",
+    "promotion_effectiveness_url": "https://dev.periscope.mckinsey-solutions.com/qaapp/perf",
+    "promotion_planning_url": "",
+    "storyboard_service_url":      "http://ppv-qa-tenant1-svc01-srv.periscope-solutions.local:5001",
+    "token_service_url":           "http://ppv-qa-tenant1-svc01-srv.periscope-solutions.local:5003",
+    "use_auth0":                   "true",
+    "homepage_service_url":        "https://dev.periscope.mckinsey-solutions.com/qaapp/homepage"
+}

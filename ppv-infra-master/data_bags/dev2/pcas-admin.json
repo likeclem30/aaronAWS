@@ -1,0 +1,19 @@
+{
+  "id": "pcas-admin",
+  "performance_path": "",
+  "price_path": "/admin2/priceetl",
+  "logout_path": "/admin2/auth/logout",
+  "heartbeat_path": "/admin2/auth/heartbeat",
+  "status_url": "https://ppv-dev-tenant2.sso-npn.periscope-solutions.com/api/v2/jobs",
+  "upload_url": "https://ppv-dev-tenant2.sso-npn.periscope-solutions.com/api/v2/jobs/users-imports",
+  "connection_id": "con_LD31qlQQy334MCKR",
+  "auth0_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJzek40aUl5ZkVvRm5RNEFZdzNYanpyOU1QWk9mdDVqYiIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbImNyZWF0ZSJdfX0sImlhdCI6MTQ1NzYyNDU1OSwianRpIjoiZTdhN2NlYTQxYWVlZWFlZDcwYzczNTJiNDQyMTM2YWQifQ.zU1DORUpAzc5UU-e0tbvGTm4er1q4qEHlRlSvfVurf4",
+  "tokenservice_url": "http://ppv-dev-tenant2-svc.periscope-solutions.local:5003",
+  "csrf_key": "AhAXDmKhZFVGtkrIAcDgJmCEvsDAhAXD",
+  "login_url": "/admin2/auth/login?returnUrl=/admin2/users",
+  "aws_command": "/usr/local/bin/aws s3 cp %s s3://ppv-dev-usersync",
+  "client_id": "3iaEj0yuyvuF4Ajz9eGIrRkCxb1yRirY",
+  "create_user_endpoint": "https://ppv-dev-tenant2.sso-npn.periscope-solutions.com/api/v2/users",
+  "password_reset_endpoint": "https://ppv-dev-tenant2.sso-npn.periscope-solutions.com/dbconnections/change_password",
+  "connection_name": "ppv-dev-tenant2-database"
+}

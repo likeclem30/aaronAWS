@@ -1,0 +1,48 @@
+{
+  "name": "pcas",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "security": {
+      "iptables_ports": ["80", "22", "5002"]  
+    },
+    "nginx": {
+      "url_context": "application_context"
+    },
+    "homepage_app": {
+      "main_menu_items" :  [
+        {
+          "id": "1",
+          "url": "/intapp3/home",
+          "title": "Home"
+        },{
+          "id": "2",
+          "url": "/intapp3/perf",
+          "title": "Analytics"
+        },{
+          "id": "3",
+          "url": "/intapp3/action-workflow",
+          "title": "Action workflow"
+        },{
+          "id": "4",
+          "url": "/intapp3/sb",
+          "title": "Storyboard"
+        }
+      ],
+      "logout_item": {
+        "title": "Log out",
+        "url": "/intapp3/auth/logout"
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+        "recipe[pcas-role]"
+  ],
+  "env_run_lists": {
+
+  }
+}

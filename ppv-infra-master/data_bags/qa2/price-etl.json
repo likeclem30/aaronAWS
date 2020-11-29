@@ -1,0 +1,10 @@
+{
+	"id": "price-etl",
+	"login_url": "/qaadmin2/auth/login?returnUrl=/qaadmin2/priceetl/",
+	"fact_job_batch_size": "300",
+	"logout_path":"/qaadmin2/auth/logout",
+    "heartbeat_path":"/qaadmin2/auth/heartbeat",
+    "configureusers_path": "/qaadmin2/users",
+    "price_path" : "/qaadmin2/priceetl",
+    "server_prefix": "/qaadmin2/priceetl/api"
+}

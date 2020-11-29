@@ -1,0 +1,12 @@
+{
+  "id": "pcas-admin",
+  "performance_path": "/coke/admin/#/perf/home",
+  "logout_path": "/coke/admin/auth/logout",
+  "heartbeat_path": "/coke/admin/auth/heartbeat",
+  "tokenservice_url": "http://ppv-con-tenant2-svc.periscope-solutions.local:5003",
+  "login_url": "/coke/admin/auth/login?returnUrl=/coke/admin/users",
+  "create_user_endpoint": "https://ppv-con-tenant2.sso.periscope-solutions.com/api/v2/users",
+  "password_reset_endpoint": "https://ppv-con-tenant2.sso.periscope-solutions.com/dbconnections/change_password",
+  "s3_usersync_bucket": "ndm-psh-tableau-usersync",
+  "connection_name": "ppv-con-tenant2-database"
+}

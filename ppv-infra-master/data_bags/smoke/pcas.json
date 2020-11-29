@@ -1,0 +1,21 @@
+{
+    "app_domain":                    "dev.periscope.mckinsey-solutions.com",
+    "auth0_domain":                  "devtw.auth0.com",
+    "auth0_logout_url":              "https://%[1]s/v2/logout?federated",
+    "id":                            "pcas",
+    "login_redirection_timeout":     2000,
+    "static_assets_root_dir":        "public",
+    "tableau_logout_url":            "https://dev-tableau.periscope.mckinsey-solutions.com/auth/logout",
+    "token_service_base_url":        "http://ppv-dev-tenant1-svc01-srv.periscope-solutions.local:5003",
+    "default_redirection_route":     "/",
+    "app_config": {
+      "login_route":                   "/app/auth/login",
+      "redirect_route":                "/app/auth/loginsuccess",
+      "default_login_redirection_url": "https://dev.periscope.mckinsey-solutions.com/app/perf/home.html"
+      },
+    "admin_config": {
+      "login_route":                   "/admin/auth/login",
+      "redirect_route":                "/admin/auth/loginsuccess",
+      "default_login_redirection_url": "https://dev.periscope.mckinsey-solutions.com/admin"
+    }
+}

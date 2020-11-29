@@ -1,0 +1,7 @@
+{
+	"id": "dimensiondataservice",
+	"app_port": "6008",
+	"log_format": "text",
+	"metadata_endpoint": "localhost:6005",
+	"log_level" : "info"
+}

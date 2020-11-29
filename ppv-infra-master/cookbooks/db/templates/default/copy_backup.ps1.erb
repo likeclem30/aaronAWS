@@ -1,0 +1,21 @@
+Param(
+  [string]$database_name,
+  [string]$type
+)
+
+$Result = (sqlcmd -Q "SET NOCOUNT ON;SELECT physical_device_name FROM msdb.dbo.backupmediafamily WHERE media_set_id in  ( SELECT Top 1 media_set_id FROM msdb.dbo.backupset WHERE database_name='$database_name' AND type='$type' ORDER BY backup_start_date DESC)"  -h-1) | Out-String
+
+$BackupFileName = $Result.trim()
+write-output $BackupFileName
+
+aws s3 cp $BackupFileName <%= @target_location %> --sse AES256
+if(!$?)
+{
+	$error_msg = "aws s3 copy failed for backup file $BackupFilename"
+	Write-EventLog -LogName Application -Source "MSSQLSERVER" -EntryType Error -EventID 1  -Message $error_msg
+	throw $error_msg
+}
+else
+{
+	Remove-Item $BackupFileName
+}
